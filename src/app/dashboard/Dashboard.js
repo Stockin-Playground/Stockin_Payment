@@ -1,9 +1,9 @@
-import React, { Component, useCallback } from "react";
+import React, { useCallback } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Link, useHistory } from "react-router-dom";
 
-export class Dashboard extends Component {
-  transactionHistoryData = {
+const Dashboard = () => {
+  const transactionHistoryData = {
     labels: ["Micro", "Retail", "Bengkel"],
     datasets: [
       {
@@ -13,7 +13,7 @@ export class Dashboard extends Component {
     ],
   };
 
-  transactionHistoryOptions = {
+  const transactionHistoryOptions = {
     responsive: true,
     maintainAspectRatio: true,
     segmentShowStroke: false,
@@ -31,263 +31,246 @@ export class Dashboard extends Component {
     },
   };
 
-  sliderSettings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-  toggleProBanner() {
-    document.querySelector(".proBanner").classList.toggle("hide");
-  }
-  render() {
-    return (
-      <div>
-        <div className="row">
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">5000</h3>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">
-                        user
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-success">
-                      <span
-                        className="mdi mdi-account
-"
-                      ></span>
-                    </div>
+  return (
+    <div>
+      <div className="row">
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">5000</h3>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      user
+                    </p>
                   </div>
                 </div>
-                <h6 className="text-muted font-weight-normal">
-                  Total Pengguna
-                </h6>
+                <div className="col-3">
+                  <div className="icon icon-box-success">
+                    <span
+                      className="mdi mdi-account
+"
+                    ></span>
+                  </div>
+                </div>
               </div>
+              <h6 className="text-muted font-weight-normal">Total Pengguna</h6>
             </div>
           </div>
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">2000</h3>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">
-                        user
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-success">
-                      <span className="mdi mdi-account-check"></span>
-                    </div>
+        </div>
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">2000</h3>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      user
+                    </p>
                   </div>
                 </div>
-                <h6 className="text-muted font-weight-normal">
-                  Pengguna Berlanggan
-                </h6>
+                <div className="col-3">
+                  <div className="icon icon-box-success">
+                    <span className="mdi mdi-account-check"></span>
+                  </div>
+                </div>
               </div>
+              <h6 className="text-muted font-weight-normal">
+                Pengguna Berlanggan
+              </h6>
             </div>
           </div>
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">2000</h3>
-                      <p className="text-warning ml-2 mb-0 font-weight-medium">
-                        user
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-warning">
-                      <span
-                        className="mdi mdi-account-key
-"
-                      ></span>
-                    </div>
+        </div>
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">2000</h3>
+                    <p className="text-warning ml-2 mb-0 font-weight-medium">
+                      user
+                    </p>
                   </div>
                 </div>
-                <h6 className="text-muted font-weight-normal">
-                  Pengguna Trial
-                </h6>
+                <div className="col-3">
+                  <div className="icon icon-box-warning">
+                    <span
+                      className="mdi mdi-account-key
+"
+                    ></span>
+                  </div>
+                </div>
               </div>
+              <h6 className="text-muted font-weight-normal">Pengguna Trial</h6>
             </div>
           </div>
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">1000</h3>
-                      <p className="text-danger ml-2 mb-0 font-weight-medium">
-                        user
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-danger">
-                      <span
-                        className="mdi mdi-account-remove
-"
-                      ></span>
-                    </div>
+        </div>
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">1000</h3>
+                    <p className="text-danger ml-2 mb-0 font-weight-medium">
+                      user
+                    </p>
                   </div>
                 </div>
-                <h6 className="text-muted font-weight-normal">
-                  Pengguna Expired
-                </h6>
+                <div className="col-3">
+                  <div className="icon icon-box-danger">
+                    <span
+                      className="mdi mdi-account-remove
+"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              <h6 className="text-muted font-weight-normal">
+                Pengguna Expired
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-4 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <h4 className="card-title">Data Pengguna</h4>
+              <div className="aligner-wrapper">
+                <Doughnut
+                  data={transactionHistoryData}
+                  options={transactionHistoryOptions}
+                />
+                <div className="absolute center-content">
+                  <h5 className="font-weight-normal text-whiite text-center mb-2 text-white">
+                    5000
+                  </h5>
+                  <p className="text-small text-muted text-center mb-0">
+                    Total
+                  </p>
+                </div>
+              </div>
+              <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                <div className="text-md-center text-xl-left">
+                  <h6 className="mb-1">Retail</h6>
+                </div>
+                <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                  <h6 className="font-weight-bold mb-0">2000</h6>
+                </div>
+              </div>
+              <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                <div className="text-md-center text-xl-left">
+                  <h6 className="mb-1">Micro</h6>
+                </div>
+                <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                  <h6 className="font-weight-bold mb-0">2000</h6>
+                </div>
+              </div>
+              <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                <div className="text-md-center text-xl-left">
+                  <h6 className="mb-1">Micro</h6>
+                </div>
+                <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                  <h6 className="font-weight-bold mb-0">2000</h6>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-4 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Data Pengguna</h4>
-                <div className="aligner-wrapper">
-                  <Doughnut
-                    data={this.transactionHistoryData}
-                    options={this.transactionHistoryOptions}
-                  />
-                  <div className="absolute center-content">
-                    <h5 className="font-weight-normal text-whiite text-center mb-2 text-white">
-                      5000
-                    </h5>
-                    <p className="text-small text-muted text-center mb-0">
-                      Total
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Retail</h6>
-                  </div>
-                  <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0">2000</h6>
-                  </div>
-                </div>
-                <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Micro</h6>
-                  </div>
-                  <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0">2000</h6>
-                  </div>
-                </div>
-                <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Micro</h6>
-                  </div>
-                  <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0">2000</h6>
-                  </div>
-                </div>
+        <div className="col-md-8 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="d-flex flex-row justify-content-between">
+                <h4 className="card-title mb-1">
+                  Pengguan Masa Aktif Akan Berakhir
+                </h4>
+                <p className="text-muted mb-1">Tanggal Masa Aktif</p>
               </div>
-            </div>
-          </div>
-          <div className="col-md-8 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="d-flex flex-row justify-content-between">
-                  <h4 className="card-title mb-1">
-                    Pengguan Masa Aktif Akan Berakhir
-                  </h4>
-                  <p className="text-muted mb-1">Tanggal Masa Aktif</p>
-                </div>
-                <div className="row">
-                  <div className="col-12">
-                    <div className="preview-list">
-                      <div className="preview-item border-bottom">
-                        <div className="preview-thumbnail">
-                          <div className="preview-icon bg-primary">
-                            <i className="mdi mdi-store"></i>
-                          </div>
-                        </div>
-                        <div className="preview-item-content d-sm-flex flex-grow">
-                          <div className="flex-grow">
-                            <h6 className="preview-subject">PT Development</h6>
-                            <p className="text-muted mb-0">Micro</p>
-                          </div>
-                          <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                            <p className="text-muted">2 hari</p>
-                            <p className="text-muted mb-0">12 Januari 2023 </p>
-                          </div>
+              <div className="row">
+                <div className="col-12">
+                  <div className="preview-list">
+                    <div className="preview-item border-bottom">
+                      <div className="preview-thumbnail">
+                        <div className="preview-icon bg-primary">
+                          <i className="mdi mdi-store"></i>
                         </div>
                       </div>
-                      <div className="preview-item border-bottom">
-                        <div className="preview-thumbnail">
-                          <div className="preview-icon bg-primary">
-                            <i className="mdi mdi-store"></i>
-                          </div>
+                      <div className="preview-item-content d-sm-flex flex-grow">
+                        <div className="flex-grow">
+                          <h6 className="preview-subject">PT Development</h6>
+                          <p className="text-muted mb-0">Micro</p>
                         </div>
-                        <div className="preview-item-content d-sm-flex flex-grow">
-                          <div className="flex-grow">
-                            <h6 className="preview-subject">
-                              Angkringan Jogja
-                            </h6>
-                            <p className="text-muted mb-0">Micro</p>
-                          </div>
-                          <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                            <p className="text-muted">3 Hari</p>
-                            <p className="text-muted mb-0">13 Januari 2023 </p>
-                          </div>
+                        <div className="mr-auto text-sm-right pt-2 pt-sm-0">
+                          <p className="text-muted">2 hari</p>
+                          <p className="text-muted mb-0">12 Januari 2023 </p>
                         </div>
                       </div>
-                      <div className="preview-item border-bottom">
-                        <div className="preview-thumbnail">
-                          <div className="preview-icon bg-warning">
-                            <i className="mdi mdi-clock"></i>
-                          </div>
-                        </div>
-                        <div className="preview-item-content d-sm-flex flex-grow">
-                          <div className="flex-grow">
-                            <h6 className="preview-subject">Liberty</h6>
-                            <p className="text-muted mb-0">Retail</p>
-                          </div>
-                          <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                            <p className="text-muted">4 Hari</p>
-                            <p className="text-muted mb-0">14 Januari 2023</p>
-                          </div>
+                    </div>
+                    <div className="preview-item border-bottom">
+                      <div className="preview-thumbnail">
+                        <div className="preview-icon bg-primary">
+                          <i className="mdi mdi-store"></i>
                         </div>
                       </div>
-                      <div className="preview-item border-bottom">
-                        <div className="preview-thumbnail">
-                          <div className="preview-icon bg-success">
-                            <i className="mdi mdi-email-open"></i>
-                          </div>
+                      <div className="preview-item-content d-sm-flex flex-grow">
+                        <div className="flex-grow">
+                          <h6 className="preview-subject">Angkringan Jogja</h6>
+                          <p className="text-muted mb-0">Micro</p>
                         </div>
-                        <div className="preview-item-content d-sm-flex flex-grow">
-                          <div className="flex-grow">
-                            <h6 className="preview-subject">Fiat Motor</h6>
-                            <p className="text-muted mb-0">Bengkel</p>
-                          </div>
-                          <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                            <p className="text-muted">4 Hari</p>
-                            <p className="text-muted mb-0">14 Januari 2023 </p>
-                          </div>
+                        <div className="mr-auto text-sm-right pt-2 pt-sm-0">
+                          <p className="text-muted">3 Hari</p>
+                          <p className="text-muted mb-0">13 Januari 2023 </p>
                         </div>
                       </div>
-                      <div className="preview-item mt-2">
-                        <Link to="/tables/basic-table">
-                          <button
-                            type="button"
-                            class="btn btn-primary btn-icon-text"
-                          >
-                            <i class="mdi mdi-clipboard-alert"></i> Detail
-                          </button>
-                        </Link>
+                    </div>
+                    <div className="preview-item border-bottom">
+                      <div className="preview-thumbnail">
+                        <div className="preview-icon bg-warning">
+                          <i className="mdi mdi-clock"></i>
+                        </div>
                       </div>
+                      <div className="preview-item-content d-sm-flex flex-grow">
+                        <div className="flex-grow">
+                          <h6 className="preview-subject">Liberty</h6>
+                          <p className="text-muted mb-0">Retail</p>
+                        </div>
+                        <div className="mr-auto text-sm-right pt-2 pt-sm-0">
+                          <p className="text-muted">4 Hari</p>
+                          <p className="text-muted mb-0">14 Januari 2023</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="preview-item border-bottom">
+                      <div className="preview-thumbnail">
+                        <div className="preview-icon bg-success">
+                          <i className="mdi mdi-email-open"></i>
+                        </div>
+                      </div>
+                      <div className="preview-item-content d-sm-flex flex-grow">
+                        <div className="flex-grow">
+                          <h6 className="preview-subject">Fiat Motor</h6>
+                          <p className="text-muted mb-0">Bengkel</p>
+                        </div>
+                        <div className="mr-auto text-sm-right pt-2 pt-sm-0">
+                          <p className="text-muted">4 Hari</p>
+                          <p className="text-muted mb-0">14 Januari 2023 </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="preview-item mt-2">
+                      <Link to="/tables/basic-table">
+                        <button
+                          type="button"
+                          class="btn btn-primary btn-icon-text"
+                        >
+                          <i class="mdi mdi-clipboard-alert"></i> Detail
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -296,8 +279,8 @@ export class Dashboard extends Component {
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Dashboard;
