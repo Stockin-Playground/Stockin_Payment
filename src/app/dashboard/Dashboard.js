@@ -1,8 +1,9 @@
 import React, { useCallback } from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
+  const history = useHistory();
   const transactionHistoryData = {
     labels: ["Micro", "Retail", "Bengkel"],
     datasets: [
@@ -12,7 +13,6 @@ const Dashboard = () => {
       },
     ],
   };
-
   const transactionHistoryOptions = {
     responsive: true,
     maintainAspectRatio: true,
@@ -30,6 +30,10 @@ const Dashboard = () => {
       enabled: true,
     },
   };
+  const onDetailClient = useCallback(
+    () => history.push("/tables/basic-table"),
+    [history]
+  );
 
   return (
     <div>
@@ -263,14 +267,13 @@ const Dashboard = () => {
                       </div>
                     </div>
                     <div className="preview-item mt-2">
-                      <Link to="/tables/basic-table">
-                        <button
-                          type="button"
-                          class="btn btn-primary btn-icon-text"
-                        >
-                          <i class="mdi mdi-clipboard-alert"></i> Detail
-                        </button>
-                      </Link>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-icon-text"
+                        onClick={onDetailClient}
+                      >
+                        <i class="mdi mdi-clipboard-alert"></i> Detail
+                      </button>
                     </div>
                   </div>
                 </div>
