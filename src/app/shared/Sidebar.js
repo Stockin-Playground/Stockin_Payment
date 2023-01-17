@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Collapse, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import { Trans } from "react-i18next";
 
 class Sidebar extends Component {
@@ -216,124 +216,10 @@ class Sidebar extends Component {
               </span>
             </Link>
           </li>
-          <li
-            className={
-              this.isPathActive("/user-pages")
-                ? "nav-item menu-items active"
-                : "nav-item menu-items"
-            }
-          >
-            <div
-              className={
-                this.state.userPagesMenuOpen
-                  ? "nav-link menu-expanded"
-                  : "nav-link"
-              }
-              onClick={() => this.toggleMenuState("userPagesMenuOpen")}
-              data-toggle="collapse"
-            >
-              <span className="menu-icon">
-                <i className="mdi mdi-security"></i>
-              </span>
-              <span className="menu-title">
-                <Trans>User Pages</Trans>
-              </span>
-              <i className="menu-arrow"></i>
-            </div>
-            <Collapse in={this.state.userPagesMenuOpen}>
-              <div>
-                <ul className="nav flex-column sub-menu">
-                  <li className="nav-item">
-                    {" "}
-                    <Link
-                      className={
-                        this.isPathActive("/user-pages/login-1")
-                          ? "nav-link active"
-                          : "nav-link"
-                      }
-                      to="/user-pages/login-1"
-                    >
-                      <Trans>Login</Trans>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    {" "}
-                    <Link
-                      className={
-                        this.isPathActive("/user-pages/register-1")
-                          ? "nav-link active"
-                          : "nav-link"
-                      }
-                      to="/user-pages/register-1"
-                    >
-                      <Trans>Register</Trans>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </Collapse>
-          </li>
           <li className="nav-item nav-category">
             <span className="nav-link">
               <Trans>More</Trans>
             </span>
-          </li>
-          <li
-            className={
-              this.isPathActive("/error-pages")
-                ? "nav-item menu-items active"
-                : "nav-item menu-items"
-            }
-          >
-            <div
-              className={
-                this.state.errorPagesMenuOpen
-                  ? "nav-link menu-expanded"
-                  : "nav-link"
-              }
-              onClick={() => this.toggleMenuState("errorPagesMenuOpen")}
-              data-toggle="collapse"
-            >
-              <span className="menu-icon">
-                <i className="mdi mdi-lock"></i>
-              </span>
-              <span className="menu-title">
-                <Trans>Error Pages</Trans>
-              </span>
-              <i className="menu-arrow"></i>
-            </div>
-            <Collapse in={this.state.errorPagesMenuOpen}>
-              <div>
-                <ul className="nav flex-column sub-menu">
-                  <li className="nav-item">
-                    {" "}
-                    <Link
-                      className={
-                        this.isPathActive("/error-pages/error-404")
-                          ? "nav-link active"
-                          : "nav-link"
-                      }
-                      to="/error-pages/error-404"
-                    >
-                      404
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    {" "}
-                    <Link
-                      className={
-                        this.isPathActive("/error-pages/error-500")
-                          ? "nav-link active"
-                          : "nav-link"
-                      }
-                      to="/error-pages/error-500"
-                    >
-                      500
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </Collapse>
           </li>
           <li className="nav-item menu-items">
             <a
@@ -346,7 +232,7 @@ class Sidebar extends Component {
                 <i className="mdi mdi-file-document-box"></i>
               </span>
               <span className="menu-title">
-                <Trans>Documentation</Trans>
+                <Trans>Printout Invoice</Trans>
               </span>
             </a>
           </li>
