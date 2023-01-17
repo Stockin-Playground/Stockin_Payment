@@ -4,7 +4,6 @@ import "./App.scss";
 import AppRoutes from "./AppRoutes";
 import Navbar from "./shared/Navbar";
 import Sidebar from "./shared/Sidebar";
-import Footer from "./shared/Footer";
 import { withTranslation } from "react-i18next";
 
 class App extends Component {
