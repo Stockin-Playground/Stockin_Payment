@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, useCallback } from "react";
 import { Doughnut } from "react-chartjs-2";
-import Slider from "react-slick";
-import { TodoListComponent } from "../apps/TodoList";
-import { VectorMap } from "react-jvectormap";
+import { Link, useHistory } from "react-router-dom";
 
 export class Dashboard extends Component {
   transactionHistoryData = {
@@ -173,20 +171,26 @@ export class Dashboard extends Component {
                 </div>
                 <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
                   <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Transfer to Paypal</h6>
-                    <p className="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+                    <h6 className="mb-1">Retail</h6>
                   </div>
                   <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0">$236</h6>
+                    <h6 className="font-weight-bold mb-0">2000</h6>
                   </div>
                 </div>
                 <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
                   <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Tranfer to Stripe</h6>
-                    <p className="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+                    <h6 className="mb-1">Micro</h6>
                   </div>
                   <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0">$593</h6>
+                    <h6 className="font-weight-bold mb-0">2000</h6>
+                  </div>
+                </div>
+                <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                  <div className="text-md-center text-xl-left">
+                    <h6 className="mb-1">Micro</h6>
+                  </div>
+                  <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                    <h6 className="font-weight-bold mb-0">2000</h6>
                   </div>
                 </div>
               </div>
@@ -274,14 +278,15 @@ export class Dashboard extends Component {
                           </div>
                         </div>
                       </div>
-                      <div className="preview-item">
-                        <button
-                          type="button"
-                          class="btn btn-primary btn-icon-text"
-                        >
-                          <i class="mdi mdi-file-check btn-icon-prepend"></i>{" "}
-                          Detail
-                        </button>
+                      <div className="preview-item mt-2">
+                        <Link to="/tables/basic-table">
+                          <button
+                            type="button"
+                            class="btn btn-primary btn-icon-text"
+                          >
+                            <i class="mdi mdi-clipboard-alert"></i> Detail
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
