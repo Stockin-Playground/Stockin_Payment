@@ -4,22 +4,13 @@ import Slider from "react-slick";
 import { TodoListComponent } from "../apps/TodoList";
 import { VectorMap } from "react-jvectormap";
 
-const mapData = {
-  BZ: 75.0,
-  US: 56.25,
-  AU: 15.45,
-  GB: 25.0,
-  RO: 10.25,
-  GE: 33.25,
-};
-
 export class Dashboard extends Component {
   transactionHistoryData = {
-    labels: ["Aktif", "Trial", "Expired"],
+    labels: ["Micro", "Retail", "Bengkel"],
     datasets: [
       {
         data: [2000, 2000, 1000],
-        backgroundColor: ["#00d25b", "#ffab00", "#fc424a"],
+        backgroundColor: ["#0090e7", "#ffab00", "#00d25b"],
       },
     ],
   };
@@ -206,9 +197,9 @@ export class Dashboard extends Component {
               <div className="card-body">
                 <div className="d-flex flex-row justify-content-between">
                   <h4 className="card-title mb-1">
-                    User Masa Aktif Akan Berakhir
+                    Pengguan Masa Aktif Akan Berakhir
                   </h4>
-                  <p className="text-muted mb-1">Your data status</p>
+                  <p className="text-muted mb-1">Tanggal Masa Aktif</p>
                 </div>
                 <div className="row">
                   <div className="col-12">
@@ -216,107 +207,70 @@ export class Dashboard extends Component {
                       <div className="preview-item border-bottom">
                         <div className="preview-thumbnail">
                           <div className="preview-icon bg-primary">
-                            <i className="mdi mdi-file-document"></i>
+                            <i className="mdi mdi-store"></i>
+                          </div>
+                        </div>
+                        <div className="preview-item-content d-sm-flex flex-grow">
+                          <div className="flex-grow">
+                            <h6 className="preview-subject">PT Development</h6>
+                            <p className="text-muted mb-0">Micro</p>
+                          </div>
+                          <div className="mr-auto text-sm-right pt-2 pt-sm-0">
+                            <p className="text-muted">2 hari</p>
+                            <p className="text-muted mb-0">12 Januari 2023 </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="preview-item border-bottom">
+                        <div className="preview-thumbnail">
+                          <div className="preview-icon bg-primary">
+                            <i className="mdi mdi-store"></i>
                           </div>
                         </div>
                         <div className="preview-item-content d-sm-flex flex-grow">
                           <div className="flex-grow">
                             <h6 className="preview-subject">
-                              Admin dashboard design
+                              Angkringan Jogja
                             </h6>
-                            <p className="text-muted mb-0">
-                              Broadcast web app mockup
-                            </p>
+                            <p className="text-muted mb-0">Micro</p>
                           </div>
                           <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                            <p className="text-muted">15 minutes ago</p>
-                            <p className="text-muted mb-0">
-                              30 tasks, 5 issues{" "}
-                            </p>
+                            <p className="text-muted">3 Hari</p>
+                            <p className="text-muted mb-0">13 Januari 2023 </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="preview-item border-bottom">
+                        <div className="preview-thumbnail">
+                          <div className="preview-icon bg-warning">
+                            <i className="mdi mdi-clock"></i>
+                          </div>
+                        </div>
+                        <div className="preview-item-content d-sm-flex flex-grow">
+                          <div className="flex-grow">
+                            <h6 className="preview-subject">Liberty</h6>
+                            <p className="text-muted mb-0">Retail</p>
+                          </div>
+                          <div className="mr-auto text-sm-right pt-2 pt-sm-0">
+                            <p className="text-muted">4 Hari</p>
+                            <p className="text-muted mb-0">14 Januari 2023</p>
                           </div>
                         </div>
                       </div>
                       <div className="preview-item border-bottom">
                         <div className="preview-thumbnail">
                           <div className="preview-icon bg-success">
-                            <i className="mdi mdi-cloud-download"></i>
-                          </div>
-                        </div>
-                        <div className="preview-item-content d-sm-flex flex-grow">
-                          <div className="flex-grow">
-                            <h6 className="preview-subject">
-                              Wordpress Development
-                            </h6>
-                            <p className="text-muted mb-0">Upload new design</p>
-                          </div>
-                          <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                            <p className="text-muted">1 hour ago</p>
-                            <p className="text-muted mb-0">
-                              23 tasks, 5 issues{" "}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="preview-item border-bottom">
-                        <div className="preview-thumbnail">
-                          <div className="preview-icon bg-info">
-                            <i className="mdi mdi-clock"></i>
-                          </div>
-                        </div>
-                        <div className="preview-item-content d-sm-flex flex-grow">
-                          <div className="flex-grow">
-                            <h6 className="preview-subject">Project meeting</h6>
-                            <p className="text-muted mb-0">
-                              New project discussion
-                            </p>
-                          </div>
-                          <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                            <p className="text-muted">35 minutes ago</p>
-                            <p className="text-muted mb-0">
-                              15 tasks, 2 issues
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="preview-item border-bottom">
-                        <div className="preview-thumbnail">
-                          <div className="preview-icon bg-danger">
                             <i className="mdi mdi-email-open"></i>
                           </div>
                         </div>
                         <div className="preview-item-content d-sm-flex flex-grow">
                           <div className="flex-grow">
-                            <h6 className="preview-subject">Broadcast Mail</h6>
-                            <p className="text-muted mb-0">
-                              Sent release details to team
-                            </p>
+                            <h6 className="preview-subject">Fiat Motor</h6>
+                            <p className="text-muted mb-0">Bengkel</p>
                           </div>
                           <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                            <p className="text-muted">55 minutes ago</p>
-                            <p className="text-muted mb-0">
-                              35 tasks, 7 issues{" "}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="preview-item">
-                        <div className="preview-thumbnail">
-                          <div className="preview-icon bg-warning">
-                            <i className="mdi mdi-chart-pie"></i>
-                          </div>
-                        </div>
-                        <div className="preview-item-content d-sm-flex flex-grow">
-                          <div className="flex-grow">
-                            <h6 className="preview-subject">UI Design</h6>
-                            <p className="text-muted mb-0">
-                              New application planning
-                            </p>
-                          </div>
-                          <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                            <p className="text-muted">50 minutes ago</p>
-                            <p className="text-muted mb-0">
-                              27 tasks, 4 issues{" "}
-                            </p>
+                            <p className="text-muted">4 Hari</p>
+                            <p className="text-muted mb-0">14 Januari 2023 </p>
                           </div>
                         </div>
                       </div>

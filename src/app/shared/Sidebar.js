@@ -209,7 +209,7 @@ class Sidebar extends Component {
               to="/tables/invoice-table"
             >
               <span className="menu-icon">
-                <i className="mdi mdi-table-large"></i>
+                <i className="mdi mdi-clipboard-text"></i>
               </span>
               <span className="menu-title">
                 <Trans>Invoice</Trans>
