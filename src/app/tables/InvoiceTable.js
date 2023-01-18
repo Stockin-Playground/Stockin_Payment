@@ -5,7 +5,7 @@ export class InvoiceTable extends Component {
     return (
       <div>
         <div className="page-header">
-          <h3 className="page-title"> Basic Tables </h3>
+          <h3 className="page-title"> Invoice </h3>
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
@@ -14,7 +14,7 @@ export class InvoiceTable extends Component {
                 </a>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
-                Basic tables
+                Invoice
               </li>
             </ol>
           </nav>
@@ -22,11 +22,7 @@ export class InvoiceTable extends Component {
           <div className="col-lg-12 grid-margin stretch-card">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title">Client Invoice Table </h4>
-                <p className="card-description">
-                  {" "}
-                  Add className <code>.table-bordered</code>
-                </p>
+                <h4 className="card-title">Table Invoice </h4>
                 <div className="table-responsive">
                   <table className="table table-bordered">
                     <thead>
