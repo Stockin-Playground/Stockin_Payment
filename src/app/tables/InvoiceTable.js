@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ProgressBar } from "react-bootstrap";
 
 export class InvoiceTable extends Component {
   render() {
@@ -23,8 +22,7 @@ export class InvoiceTable extends Component {
           <div className="col-lg-12 grid-margin stretch-card">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title">Client InvoiceTable </h4>
-                <h4 className="card-title">BY:Raden Salaf</h4>
+                <h4 className="card-title">Client Invoice Table </h4>
                 <p className="card-description">
                   {" "}
                   Add className <code>.table-bordered</code>
@@ -132,45 +130,19 @@ export class InvoiceTable extends Component {
                         <i class="mdi mdi-close-box" style={{ alignSelf:'center'}}></i></button>
                          </td>
                       </tr>
-                      <tr>
-                        <td> 6 </td>
-                        <td> Shello Mutiara Sukma </td>
-                        <td>
-                          <label class="badge badge-danger">Pending</label>
-                        </td>
-                        <td> Rp.2.100.000 </td>
-                        <td> April 05, 2015 </td>
-                        <td style={{textAlign:'center'}}> 
-                        <button type="button" class="btn btn-primary btn-rounded btn-icon">
-                        <i style={{ marginLeft:'10%'}} class="mdi mdi-pencil"></i>
-                        </button>
-                         </td>
-                         <td style={{textAlign:'center'}}>
-                         <button type="button" class="btn btn-danger btn-rounded btn-icon" style={{backgroundColor:"#fc424a", alignSelf:'center'}}  >
-                        <i class="mdi mdi-close-box" style={{ alignSelf:'center'}}></i></button>
-                         </td>
-                      </tr>
-                      <tr>
-                        <td> 7 </td>
-                        <td> Ahmad Nur Alhak </td>
-                        <td>
-                          <label class="badge badge-success">Completed</label>
-                        </td>
-                        <td> Rp.14.220.000 </td>
-                        <td> June 16, 2015 </td>
-                        <td style={{textAlign:'center'}}> 
-                        <button type="button" class="btn btn-primary btn-rounded btn-icon">
-                        <i style={{ marginLeft:'10%'}} class="mdi mdi-pencil"></i>
-                        </button>
-                         </td>
-                         <td style={{textAlign:'center'}}>
-                         <button type="button" class="btn btn-danger btn-rounded btn-icon" style={{backgroundColor:"#fc424a", alignSelf:'center'}}  >
-                        <i class="mdi mdi-close-box" style={{ alignSelf:'center'}}></i></button>
-                         </td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
+                <nav class="btn float-right mt-2" >
+                      <ul class="pagination rounded">
+                        <li class="page-item"><a class="page-link" href="#"><i class="mdi mdi-chevron-left"></i></a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="mdi mdi-chevron-right"></i></a></li>
+                      </ul>
+                    </nav>
               </div>
             </div>
           </div>
