@@ -73,7 +73,7 @@ class Sidebar extends Component {
                 <div className="count-indicator">
                   <img
                     className="img-xs rounded-circle "
-                    src={require("../../assets/images/faces/face15.jpg")}
+                    src={require("../../assets/images/stockin-mini.png")}
                     alt="profile"
                   />
                   <span className="count bg-success"></span>
