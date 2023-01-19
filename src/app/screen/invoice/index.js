@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const InvoiceTable = () => {
+  const Swal = require("sweetalert2");
   const [alert, setAlert] = useState(false);
 
   return (
@@ -62,7 +64,25 @@ const InvoiceTable = () => {
                       <button
                         type="button"
                         class="btn btn-danger btn-rounded btn-icon"
-                        onClick={() => setAlert(true)}
+                        onClick={() => {
+                          Swal.fire({
+                            title: "Apakah sudah benar ?",
+                            text: "Sevilla Prameswarijanuari",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "Hapus",
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              Swal.fire(
+                                "Data telah dihapus!",
+                                "Sevilla Prameswarijanuari",
+                                "success"
+                              );
+                            }
+                          });
+                        }}
                       >
                         <i
                           class="mdi mdi-close-box"
