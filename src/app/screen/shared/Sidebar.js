@@ -93,13 +93,13 @@ class Sidebar extends Component {
         <div className="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
           <a className="sidebar-brand brand-logo" href="index.html">
             <img
-              src={require("../../assets/images/stockin_landscape.png")}
+              src={require("../../../assets/images/stockin_landscape.png")}
               alt="logo"
             />
           </a>
           <a className="sidebar-brand brand-logo-mini" href="index.html">
             <img
-              src={require("../../assets/images/stockin-mini.png")}
+              src={require("../../../assets/images/stockin-mini.png")}
               alt="logo"
             />
           </a>
@@ -111,7 +111,7 @@ class Sidebar extends Component {
                 <div className="count-indicator">
                   <img
                     className="img-xs rounded-circle "
-                    src={require("../../assets/images/stockin-mini.png")}
+                    src={require("../../../assets/images/stockin-mini.png")}
                     alt="profile"
                   />
                   <span className="count bg-success"></span>

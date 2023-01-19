@@ -35,6 +35,7 @@ const InvoiceTable = () => {
                     <th> Status </th>
                     <th> Pembayaran </th>
                     <th> Tanggal Pembayaran </th>
+                    <th> Invoice </th>
                     <th colspan="2">
                       <b>Actions</b>
                     </th>
@@ -45,10 +46,231 @@ const InvoiceTable = () => {
                     <td> 1 </td>
                     <td> Sevilla Prameswarijanuari </td>
                     <td>
-                      <label class="badge badge-danger">Pending</label>
+                      <label class="badge badge-warning">Pending</label>
                     </td>
                     <td> Rp.4.450.000 </td>
                     <td> May 15, 2015 </td>
+                    <td>
+                      <button disabled class="btn btn-outline-secondary">
+                        View
+                      </button>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-rounded btn-icon"
+                      >
+                        <i
+                          style={{ marginLeft: "10%" }}
+                          class="mdi mdi-pencil"
+                        ></i>
+                      </button>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-rounded btn-icon"
+                        onClick={() => {
+                          Swal.fire({
+                            title: "Apakah sudah benar ?",
+                            text: "Sevilla Prameswarijanuari",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "Hapus",
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              Swal.fire(
+                                "Data telah dihapus!",
+                                "Sevilla Prameswarijanuari",
+                                "success"
+                              );
+                            }
+                          });
+                        }}
+                      >
+                        <i
+                          class="mdi mdi-close-box"
+                          style={{ marginLeft: "10%" }}
+                        ></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> 2 </td>
+                    <td> Sevilla Prameswarijanuari </td>
+                    <td>
+                      <label class="badge badge-success">Success</label>
+                    </td>
+                    <td> Rp.4.450.000 </td>
+                    <td> May 15, 2015 </td>
+                    <td>
+                      <button class="btn btn-outline-secondary">View</button>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-rounded btn-icon"
+                      >
+                        <i
+                          style={{ marginLeft: "10%" }}
+                          class="mdi mdi-pencil"
+                        ></i>
+                      </button>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-rounded btn-icon"
+                        onClick={() => {
+                          Swal.fire({
+                            title: "Apakah sudah benar ?",
+                            text: "Sevilla Prameswarijanuari",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "Hapus",
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              Swal.fire(
+                                "Data telah dihapus!",
+                                "Sevilla Prameswarijanuari",
+                                "success"
+                              );
+                            }
+                          });
+                        }}
+                      >
+                        <i
+                          class="mdi mdi-close-box"
+                          style={{ marginLeft: "10%" }}
+                        ></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> 3 </td>
+                    <td> Sevilla Prameswarijanuari </td>
+                    <td>
+                      <label class="badge badge-success">Success</label>
+                    </td>
+                    <td> Rp.4.450.000 </td>
+                    <td> May 15, 2015 </td>
+                    <td>
+                      <button class="btn btn-outline-secondary">View</button>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-rounded btn-icon"
+                      >
+                        <i
+                          style={{ marginLeft: "10%" }}
+                          class="mdi mdi-pencil"
+                        ></i>
+                      </button>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-rounded btn-icon"
+                        onClick={() => {
+                          Swal.fire({
+                            title: "Apakah sudah benar ?",
+                            text: "Sevilla Prameswarijanuari",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "Hapus",
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              Swal.fire(
+                                "Data telah dihapus!",
+                                "Sevilla Prameswarijanuari",
+                                "success"
+                              );
+                            }
+                          });
+                        }}
+                      >
+                        <i
+                          class="mdi mdi-close-box"
+                          style={{ marginLeft: "10%" }}
+                        ></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> 4 </td>
+                    <td> Sevilla Prameswarijanuari </td>
+                    <td>
+                      <label class="badge badge-warning">Panding</label>
+                    </td>
+                    <td> Rp.4.450.000 </td>
+                    <td> May 15, 2015 </td>
+                    <td>
+                      <button disabled class="btn btn-outline-secondary">
+                        View
+                      </button>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-rounded btn-icon"
+                      >
+                        <i
+                          style={{ marginLeft: "10%" }}
+                          class="mdi mdi-pencil"
+                        ></i>
+                      </button>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-rounded btn-icon"
+                        onClick={() => {
+                          Swal.fire({
+                            title: "Apakah sudah benar ?",
+                            text: "Sevilla Prameswarijanuari",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "Hapus",
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              Swal.fire(
+                                "Data telah dihapus!",
+                                "Sevilla Prameswarijanuari",
+                                "success"
+                              );
+                            }
+                          });
+                        }}
+                      >
+                        <i
+                          class="mdi mdi-close-box"
+                          style={{ marginLeft: "10%" }}
+                        ></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> 5 </td>
+                    <td> Sevilla Prameswarijanuari </td>
+                    <td>
+                      <label class="badge badge-warning">Panding</label>
+                    </td>
+                    <td> Rp.4.450.000 </td>
+                    <td> May 15, 2015 </td>
+                    <td>
+                      <button disabled class="btn btn-outline-secondary">
+                        View
+                      </button>
+                    </td>
                     <td style={{ textAlign: "center" }}>
                       <button
                         type="button"

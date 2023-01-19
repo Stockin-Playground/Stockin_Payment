@@ -19,7 +19,10 @@ const Navbar = () => {
     <nav className="navbar p-0 fixed-top d-flex flex-row">
       <div className="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
         <Link className="navbar-brand brand-logo-mini" to="/">
-          <img src={require("../../assets/images/logo-mini.svg")} alt="logo" />
+          <img
+            src={require("../../../assets/images/logo-mini.svg")}
+            alt="logo"
+          />
         </Link>
       </div>
       <div className="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
@@ -138,7 +141,7 @@ const Navbar = () => {
                 <div className="preview-thumbnail">
                   <div className="preview-icon bg-dark rounded-circle">
                     <img
-                      src={require("../../assets/images/faces/face4.jpg")}
+                      src={require("../../../assets/images/faces/face4.jpg")}
                       alt="profile"
                       className="rounded-circle profile-pic"
                     />
@@ -163,7 +166,7 @@ const Navbar = () => {
                 <div className="preview-thumbnail">
                   <div className="preview-icon bg-dark rounded-circle">
                     <img
-                      src={require("../../assets/images/faces/face2.jpg")}
+                      src={require("../../../assets/images/faces/face2.jpg")}
                       alt="profile"
                       className="rounded-circle profile-pic"
                     />
@@ -188,7 +191,7 @@ const Navbar = () => {
                 <div className="preview-thumbnail">
                   <div className="preview-icon bg-dark rounded-circle">
                     <img
-                      src={require("../../assets/images/faces/face3.jpg")}
+                      src={require("../../../assets/images/faces/face3.jpg")}
                       alt="profile"
                       className="rounded-circle profile-pic"
                     />
@@ -293,7 +296,7 @@ const Navbar = () => {
               <div className="navbar-profile">
                 <img
                   className="img-xs rounded-circle"
-                  src={require("../../assets/images/stockin-mini.png")}
+                  src={require("../../../assets/images/stockin-mini.png")}
                   alt="profile"
                 />
                 <p className="mb-0 d-none d-sm-block navbar-profile-name">
