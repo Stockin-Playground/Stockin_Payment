@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import Swal from "sweetalert2";
+import { useHistory } from "react-router-dom";
 
 const InvoiceTable = () => {
-  const Swal = require("sweetalert2");
+  const history = useHistory();
   const [alert, setAlert] = useState(false);
+
+  const onInvoice = useCallback(
+    () => history.push("/tables/invoice-view"),
+    [history]
+  );
 
   return (
     <div>
@@ -106,7 +112,12 @@ const InvoiceTable = () => {
                     <td> Rp.4.450.000 </td>
                     <td> May 15, 2015 </td>
                     <td>
-                      <button class="btn btn-outline-secondary">View</button>
+                      <button
+                        onClick={onInvoice}
+                        class="btn btn-outline-secondary"
+                      >
+                        View
+                      </button>
                     </td>
                     <td style={{ textAlign: "center" }}>
                       <button

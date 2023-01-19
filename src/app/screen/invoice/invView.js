@@ -41,11 +41,11 @@ const invView = () => {
                   Invoice #INV-203
                 </h3>
               </div>
-              <hr style={{ borderColor: "white" }} />
             </div>
+            <hr style={{ borderColor: "#2c2e33" }} />
             <div className="container-fluid d-flex justify-content-between">
               <div className="col-lg-4 ps-0">
-                <p className="mt-5 mb-2">
+                <p className="mt-4 mb-2">
                   <b>PT. MODEL DIGITAL INDONESIA</b>
                 </p>
                 <p>
@@ -57,7 +57,7 @@ const invView = () => {
                 </p>
               </div>
               <div className="col-lg-3 pe-0">
-                <p className="mb-0 mt-5">
+                <p className="mb-0 mt-4">
                   Invoice Date : 23rd Jan 2016 <br />
                   INVOICE &nbsp;&nbsp;&nbsp;: 25th Jan 2017
                 </p>
@@ -66,7 +66,7 @@ const invView = () => {
             </div>
             <div className="container-fluid d-flex justify-content-between">
               <div className="col-lg-3 ps-0">
-                <p className="mt-5 mb-2 text-end">
+                <p className="mt-4 mb-2 text-end">
                   <b>Invoice to</b>
                 </p>
                 <p className="text-end">
@@ -127,6 +127,7 @@ const invView = () => {
               <p className="text-end">vat (10%) : $138</p>
               <h4 className="text-end mb-5">Total : $13,986</h4>
             </div>
+            <hr style={{ borderColor: "#2c2e33" }} />
             <div className="container-fluid w-100">
               <a href="#" className="btn btn-primary float-right mt-4 ms-2">
                 <i className="mdi mdi-printer me-1"></i>Print
