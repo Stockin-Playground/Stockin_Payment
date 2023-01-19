@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { Trans } from "react-i18next";
+import Swal from "sweetalert2";
 
 class Sidebar extends Component {
   state = {};
@@ -17,6 +18,43 @@ class Sidebar extends Component {
       });
       this.setState({ [menuState]: true });
     }
+  }
+
+  onChangePassword() {
+    Swal.fire({
+      title: "Ubah Password",
+      html: `<input type="password" id="password_old" class="swal2-input" placeholder="Password Lama">
+      <input type="password" id="password_new" class="swal2-input" placeholder="Password baru">
+      <input type="password" id="password_corfm" class="swal2-input" placeholder="Konfirmasi password">`,
+      confirmButtonText: "Simpan",
+      focusConfirm: false,
+      preConfirm: () => {
+        const password_old =
+          Swal.getPopup().querySelector("#password_old").value;
+        const password_new =
+          Swal.getPopup().querySelector("#password_new").value;
+        const password_corfm =
+          Swal.getPopup().querySelector("#password_corfm").value;
+        if (!password_old || !password_new || !password_corfm) {
+          Swal.showValidationMessage(`Password tidak boleh kosong`);
+        } else if (password_new !== password_corfm) {
+          Swal.showValidationMessage(`Konfirmasi password salah`);
+        }
+
+        return {
+          password_old: password_old,
+          password_new: password_new,
+          password_corfm: password_corfm,
+        };
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          icon: "success",
+          text: "Berhasil ubah password",
+        });
+      }
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -119,26 +157,12 @@ class Sidebar extends Component {
                         <i className="mdi mdi-onepassword  text-info"></i>
                       </div>
                     </div>
-                    <div className="preview-item-content">
+                    <div
+                      className="preview-item-content"
+                      onClick={this.onChangePassword}
+                    >
                       <p className="preview-subject ellipsis mb-1 text-small">
                         <Trans>Change Password</Trans>
-                      </p>
-                    </div>
-                  </a>
-                  <div className="dropdown-divider"></div>
-                  <a
-                    href="!#"
-                    className="dropdown-item preview-item"
-                    onClick={(evt) => evt.preventDefault()}
-                  >
-                    <div className="preview-thumbnail">
-                      <div className="preview-icon bg-dark rounded-circle">
-                        <i className="mdi mdi-calendar-today text-success"></i>
-                      </div>
-                    </div>
-                    <div className="preview-item-content">
-                      <p className="preview-subject ellipsis mb-1 text-small">
-                        <Trans>To-do list</Trans>
                       </p>
                     </div>
                   </a>
