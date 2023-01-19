@@ -12,7 +12,7 @@ const Typography = lazy(() => import("./basic-ui/Typography"));
 const BasicElements = lazy(() => import("./form-elements/BasicElements"));
 
 const BasicTable = lazy(() => import("./tables/BasicTable"));
-const InvoiceTable = lazy(() => import("./tables/InvoiceTable"));
+const InvoiceTable = lazy(() => import("./screen/invoice"));
 
 const Mdi = lazy(() => import("./icons/Mdi"));
 
