@@ -11,8 +11,8 @@ const InvoiceTable = lazy(() => import("./screen/invoice"));
 const Error404 = lazy(() => import("./error-pages/Error404"));
 const Error500 = lazy(() => import("./error-pages/Error500"));
 
-const Login = lazy(() => import("./user-pages/Login"));
-const Register1 = lazy(() => import("./user-pages/Register"));
+const Login = lazy(() => import("./screen/user/Login"));
+const Register1 = lazy(() => import("./screen/user/Register"));
 
 class AppRoutes extends Component {
   render() {
