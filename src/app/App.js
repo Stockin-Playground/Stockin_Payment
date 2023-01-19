@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "./App.scss";
 import AppRoutes from "./AppRoutes";
-import Navbar from "./shared/Navbar";
-import Sidebar from "./shared/Sidebar";
+import Navbar from "./screen/shared/Navbar";
+import Sidebar from "./screen/shared/Sidebar";
 import { withTranslation } from "react-i18next";
 
 class App extends Component {

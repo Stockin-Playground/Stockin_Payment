@@ -1,15 +1,15 @@
 import React, { Component, Suspense, lazy } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import Spinner from "../app/shared/Spinner";
+import Spinner from "./screen/shared/Spinner";
 
-const Dashboard = lazy(() => import("./dashboard/Dashboard"));
+const Dashboard = lazy(() => import("./screen/dashboard"));
 
 const Client = lazy(() => import("./screen/client"));
 const InvoiceTable = lazy(() => import("./screen/invoice"));
 
-const Error404 = lazy(() => import("./error-pages/Error404"));
-const Error500 = lazy(() => import("./error-pages/Error500"));
+const Error404 = lazy(() => import("./screen/error-pages/Error404"));
+const Error500 = lazy(() => import("./screen/error-pages/Error500"));
 
 const Login = lazy(() => import("./screen/user/Login"));
 const Register1 = lazy(() => import("./screen/user/Register"));
