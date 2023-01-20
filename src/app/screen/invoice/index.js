@@ -32,7 +32,18 @@ const InvoiceTable = () => {
         <div className="card">
           <div className="card-body">
             <h4 className="card-title">Table Invoice </h4>
+            <h4 
+              class="btn float-right mt-10"
+              className="card-title">BY:Raden Salaf </h4>
             <div className="table-responsive">
+            <label>
+              <input type="search" class="form-control mb-2" placeholder="Search" aria-controls="order-listing"></input>
+            </label>
+            <button type="button" class="btn float-right mt-10 mb 4 btn-primary btn-icon-text">
+             <i
+               style={{marginTop : "15px" }} 
+               class="mdi mdi-file-check btn-icon-prepend mb2">
+              </i> Buat Invoice </button>
               <table className="table table-bordered">
                 <thead>
                   <tr>
@@ -50,14 +61,16 @@ const InvoiceTable = () => {
                 <tbody>
                   <tr>
                     <td> 1 </td>
-                    <td> Sevilla Prameswarijanuari </td>
+                    <td> Aziz Surachman </td>
                     <td>
                       <label class="badge badge-warning">Pending</label>
                     </td>
                     <td> Rp.4.450.000 </td>
                     <td> May 15, 2015 </td>
                     <td>
-                      <button disabled class="btn btn-outline-secondary">
+                      <button
+                        one onClick={onInvoice}
+                        class="btn btn-outline-secondary">
                         View
                       </button>
                     </td>
@@ -105,11 +118,11 @@ const InvoiceTable = () => {
                   </tr>
                   <tr>
                     <td> 2 </td>
-                    <td> Sevilla Prameswarijanuari </td>
+                    <td> Abiyasa Fadli Akbar </td>
                     <td>
                       <label class="badge badge-success">Success</label>
                     </td>
-                    <td> Rp.4.450.000 </td>
+                    <td> Rp.89.450.000 </td>
                     <td> May 15, 2015 </td>
                     <td>
                       <button
@@ -137,7 +150,7 @@ const InvoiceTable = () => {
                         onClick={() => {
                           Swal.fire({
                             title: "Apakah sudah benar ?",
-                            text: "Sevilla Prameswarijanuari",
+                            text: "Abiyasa Fadli Akbar",
                             icon: "warning",
                             showCancelButton: true,
                             confirmButtonColor: "#3085d6",
@@ -147,7 +160,7 @@ const InvoiceTable = () => {
                             if (result.isConfirmed) {
                               Swal.fire(
                                 "Data telah dihapus!",
-                                "Sevilla Prameswarijanuari",
+                                "Abiyasa Fadli Akbar",
                                 "success"
                               );
                             }
@@ -163,14 +176,18 @@ const InvoiceTable = () => {
                   </tr>
                   <tr>
                     <td> 3 </td>
-                    <td> Sevilla Prameswarijanuari </td>
+                    <td> Bejo Paijo </td>
                     <td>
                       <label class="badge badge-success">Success</label>
                     </td>
-                    <td> Rp.4.450.000 </td>
+                    <td> Rp.12.050.000 </td>
                     <td> May 15, 2015 </td>
                     <td>
-                      <button class="btn btn-outline-secondary">View</button>
+                      <button
+                        onClick={onInvoice} 
+                        class="btn btn-outline-secondary">
+                        View
+                      </button>
                     </td>
                     <td style={{ textAlign: "center" }}>
                       <button
@@ -190,7 +207,7 @@ const InvoiceTable = () => {
                         onClick={() => {
                           Swal.fire({
                             title: "Apakah sudah benar ?",
-                            text: "Sevilla Prameswarijanuari",
+                            text: "Bejo Paijo",
                             icon: "warning",
                             showCancelButton: true,
                             confirmButtonColor: "#3085d6",
@@ -200,7 +217,7 @@ const InvoiceTable = () => {
                             if (result.isConfirmed) {
                               Swal.fire(
                                 "Data telah dihapus!",
-                                "Sevilla Prameswarijanuari",
+                                "Bejo Paijo",
                                 "success"
                               );
                             }
@@ -216,14 +233,14 @@ const InvoiceTable = () => {
                   </tr>
                   <tr>
                     <td> 4 </td>
-                    <td> Sevilla Prameswarijanuari </td>
+                    <td> Ahmad Nur Alhak </td>
                     <td>
                       <label class="badge badge-warning">Panding</label>
                     </td>
-                    <td> Rp.4.450.000 </td>
+                    <td> Rp.24.350.000 </td>
                     <td> May 15, 2015 </td>
                     <td>
-                      <button disabled class="btn btn-outline-secondary">
+                      <button  class="btn btn-outline-secondary">
                         View
                       </button>
                     </td>
@@ -245,7 +262,7 @@ const InvoiceTable = () => {
                         onClick={() => {
                           Swal.fire({
                             title: "Apakah sudah benar ?",
-                            text: "Sevilla Prameswarijanuari",
+                            text: "Ahmad Nur Alhak",
                             icon: "warning",
                             showCancelButton: true,
                             confirmButtonColor: "#3085d6",
@@ -255,7 +272,7 @@ const InvoiceTable = () => {
                             if (result.isConfirmed) {
                               Swal.fire(
                                 "Data telah dihapus!",
-                                "Sevilla Prameswarijanuari",
+                                "Ahmad Nur Alhak",
                                 "success"
                               );
                             }
@@ -271,14 +288,14 @@ const InvoiceTable = () => {
                   </tr>
                   <tr>
                     <td> 5 </td>
-                    <td> Sevilla Prameswarijanuari </td>
+                    <td> Rafi Dzulfikar </td>
                     <td>
                       <label class="badge badge-warning">Panding</label>
                     </td>
-                    <td> Rp.4.450.000 </td>
+                    <td> Rp.11.260.000 </td>
                     <td> May 15, 2015 </td>
                     <td>
-                      <button disabled class="btn btn-outline-secondary">
+                      <button  class="btn btn-outline-secondary">
                         View
                       </button>
                     </td>
@@ -300,7 +317,7 @@ const InvoiceTable = () => {
                         onClick={() => {
                           Swal.fire({
                             title: "Apakah sudah benar ?",
-                            text: "Sevilla Prameswarijanuari",
+                            text: "Rafi Dzulfikar",
                             icon: "warning",
                             showCancelButton: true,
                             confirmButtonColor: "#3085d6",
@@ -310,7 +327,7 @@ const InvoiceTable = () => {
                             if (result.isConfirmed) {
                               Swal.fire(
                                 "Data telah dihapus!",
-                                "Sevilla Prameswarijanuari",
+                                "Rafi Dzulfikar",
                                 "success"
                               );
                             }
