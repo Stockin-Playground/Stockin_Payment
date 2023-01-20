@@ -32,9 +32,6 @@ const InvoiceTable = () => {
         <div className="card">
           <div className="card-body">
             <h4 className="card-title">Table Invoice </h4>
-            <h4 
-              class="btn float-right mt-10"
-              className="card-title">BY:Raden Salaf </h4>
             <div className="table-responsive">
             <label>
               <input type="search" class="form-control mb-2" placeholder="Search" aria-controls="order-listing"></input>
@@ -65,7 +62,7 @@ const InvoiceTable = () => {
                     <td>
                       <label class="badge badge-warning">Pending</label>
                     </td>
-                    <td> Rp.4.450.000 </td>
+                    <td> Rp.94.850.000 </td>
                     <td> May 15, 2015 </td>
                     <td>
                       <button
@@ -92,7 +89,7 @@ const InvoiceTable = () => {
                         onClick={() => {
                           Swal.fire({
                             title: "Apakah sudah benar ?",
-                            text: "Sevilla Prameswarijanuari",
+                            text: "Aziz Surachman",
                             icon: "warning",
                             showCancelButton: true,
                             confirmButtonColor: "#3085d6",
@@ -102,7 +99,7 @@ const InvoiceTable = () => {
                             if (result.isConfirmed) {
                               Swal.fire(
                                 "Data telah dihapus!",
-                                "Sevilla Prameswarijanuari",
+                                "Aziz Surachman",
                                 "success"
                               );
                             }
