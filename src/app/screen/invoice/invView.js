@@ -1,10 +1,6 @@
-import React, { useState } from "react";
-import Swal from "sweetalert2";
+import React from "react";
 
 const invView = () => {
-  const Swal = require("sweetalert2");
-  //   const [alert, setAlert] = useState(false);
-
   return (
     <div>
       <div className="page-header">
