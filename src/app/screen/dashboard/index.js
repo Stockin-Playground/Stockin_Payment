@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useHistory } from "react-router-dom";
-import { getSumClient } from "./dashboardAPI";
+import { getSumClient, getClient } from "./dashboardAPI";
 
 const Dashboard = () => {
   const history = useHistory();
   const [userSum, setUserSum] = useState([]);
+  const [expClient, setExptClient] = useState([]);
 
   useEffect(() => {
     getUser();
@@ -13,6 +14,7 @@ const Dashboard = () => {
 
   const getUser = async () => {
     let dataClient = await getSumClient();
+    let expiredClient = await getClient();
     let allCount = 0;
     dataClient.data.map((item) => {
       allCount = allCount + item.status;
@@ -20,6 +22,8 @@ const Dashboard = () => {
     dataClient.data.push({
       allCount: allCount,
     });
+
+    setExptClient(expiredClient.data);
     setUserSum(dataClient.data);
   };
 
@@ -254,24 +258,35 @@ const Dashboard = () => {
               <div className="row">
                 <div className="col-12">
                   <div className="preview-list">
-                    <div className="preview-item border-bottom">
-                      <div className="preview-thumbnail">
-                        <div className="preview-icon bg-primary">
-                          <i className="mdi mdi-store"></i>
-                        </div>
-                      </div>
-                      <div className="preview-item-content d-sm-flex flex-grow">
-                        <div className="flex-grow">
-                          <h6 className="preview-subject">PT Development</h6>
-                          <p className="text-muted mb-0">Micro</p>
-                        </div>
-                        <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                          <p className="text-muted">2 hari</p>
-                          <p className="text-muted mb-0">12 Januari 2023 </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="preview-item border-bottom">
+                    {expClient.map(() => {
+                      return (
+                        <>
+                          <div className="preview-item border-bottom">
+                            <div className="preview-thumbnail">
+                              <div className="preview-icon bg-primary">
+                                <i className="mdi mdi-store"></i>
+                              </div>
+                            </div>
+                            <div className="preview-item-content d-sm-flex flex-grow">
+                              <div className="flex-grow">
+                                <h6 className="preview-subject">
+                                  PT Development
+                                </h6>
+                                <p className="text-muted mb-0">Micro</p>
+                              </div>
+                              <div className="mr-auto text-sm-right pt-2 pt-sm-0">
+                                <p className="text-muted">2 hari</p>
+                                <p className="text-muted mb-0">
+                                  12 Januari 2023{" "}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      );
+                    })}
+
+                    {/* <div className="preview-item border-bottom">
                       <div className="preview-thumbnail">
                         <div className="preview-icon bg-primary">
                           <i className="mdi mdi-store"></i>
@@ -321,7 +336,7 @@ const Dashboard = () => {
                           <p className="text-muted mb-0">14 Januari 2023 </p>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="preview-item mt-2">
                       <button
                         type="button"
