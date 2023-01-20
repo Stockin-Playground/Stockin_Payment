@@ -5,15 +5,18 @@ import { getSumClient } from "./dashboardAPI";
 
 const Dashboard = () => {
   const history = useHistory();
-  const [userSum, setUserSum] = useState();
+  const [userSum, setUserSum] = useState([]);
 
   useEffect(() => {
     getUser();
   }, []);
 
-  const getUser = () => {
+  const getUser = async () => {
     console.log("jalan awaaaaall");
-    getSumClient();
+    let dataClient = await getSumClient();
+    console.log("data clieent");
+    setUserSum(dataClient.data);
+    console.log(dataClient.data);
   };
 
   const transactionHistoryData = {
@@ -105,7 +108,9 @@ const Dashboard = () => {
               <div className="row">
                 <div className="col-9">
                   <div className="d-flex align-items-center align-self-start">
-                    <h3 className="mb-0">2000</h3>
+                    <h3 className="mb-0">
+                      {userSum.length < 1 ? "90" : userSum[1].status}
+                    </h3>
                     <p className="text-warning ml-2 mb-0 font-weight-medium">
                       user
                     </p>
@@ -113,10 +118,7 @@ const Dashboard = () => {
                 </div>
                 <div className="col-3">
                   <div className="icon icon-box-warning">
-                    <span
-                      className="mdi mdi-account-key
-"
-                    ></span>
+                    <span className="mdi mdi-account-key" />
                   </div>
                 </div>
               </div>
