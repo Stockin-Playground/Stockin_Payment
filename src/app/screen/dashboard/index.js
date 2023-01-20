@@ -1,9 +1,15 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useHistory } from "react-router-dom";
+import { getSumClient } from "./dashboardAPI";
 
 const Dashboard = () => {
   const history = useHistory();
+
+  useEffect(() => {
+    console.log("jalan awaaaaall");
+  }, []);
+
   const transactionHistoryData = {
     labels: ["Micro", "Retail", "Bengkel"],
     datasets: [
