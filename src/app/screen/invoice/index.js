@@ -63,7 +63,7 @@ const InvoiceTable = () => {
                       <label class="badge badge-warning">Pending</label>
                     </td>
                     <td> Rp.94.850.000 </td>
-                    <td> May 15, 2015 </td>
+                    <td> May 15, 2021 </td>
                     <td>
                       <button
                         one onClick={onInvoice}
@@ -120,7 +120,7 @@ const InvoiceTable = () => {
                       <label class="badge badge-success">Success</label>
                     </td>
                     <td> Rp.89.450.000 </td>
-                    <td> May 15, 2015 </td>
+                    <td> Feb 24, 2022 </td>
                     <td>
                       <button
                         onClick={onInvoice}
@@ -178,7 +178,7 @@ const InvoiceTable = () => {
                       <label class="badge badge-success">Success</label>
                     </td>
                     <td> Rp.12.050.000 </td>
-                    <td> May 15, 2015 </td>
+                    <td> Juli 21, 2022 </td>
                     <td>
                       <button
                         onClick={onInvoice} 
@@ -235,7 +235,7 @@ const InvoiceTable = () => {
                       <label class="badge badge-warning">Panding</label>
                     </td>
                     <td> Rp.24.350.000 </td>
-                    <td> May 15, 2015 </td>
+                    <td> Maret 12, 2022 </td>
                     <td>
                       <button  class="btn btn-outline-secondary">
                         View
@@ -290,7 +290,7 @@ const InvoiceTable = () => {
                       <label class="badge badge-warning">Panding</label>
                     </td>
                     <td> Rp.11.260.000 </td>
-                    <td> May 15, 2015 </td>
+                    <td> Des 08, 2022 </td>
                     <td>
                       <button  class="btn btn-outline-secondary">
                         View
