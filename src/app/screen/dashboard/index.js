@@ -5,15 +5,22 @@ import { getSumClient } from "./dashboardAPI";
 
 const Dashboard = () => {
   const history = useHistory();
-  const [userSum, setUserSum] = useState();
+  const [userSum, setUserSum] = useState([]);
 
   useEffect(() => {
     getUser();
   }, []);
 
-  const getUser = () => {
-    console.log("jalan awaaaaall");
-    getSumClient();
+  const getUser = async () => {
+    let dataClient = await getSumClient();
+    let allCount = 0;
+    dataClient.data.map((item) => {
+      allCount = allCount + item.status;
+    });
+    dataClient.data.push({
+      allCount: allCount,
+    });
+    setUserSum(dataClient.data);
   };
 
   const transactionHistoryData = {
@@ -56,7 +63,17 @@ const Dashboard = () => {
               <div className="row">
                 <div className="col-9">
                   <div className="d-flex align-items-center align-self-start">
-                    <h3 className="mb-0">5000</h3>
+                    <h3 className="mb-0">
+                      {userSum.length < 1 ? (
+                        <div className="jumping-dots-loader">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                      ) : (
+                        userSum[3].allCount
+                      )}
+                    </h3>
                     <p className="text-success ml-2 mb-0 font-weight-medium">
                       user
                     </p>
@@ -81,7 +98,17 @@ const Dashboard = () => {
               <div className="row">
                 <div className="col-9">
                   <div className="d-flex align-items-center align-self-start">
-                    <h3 className="mb-0">2000</h3>
+                    <h3 className="mb-0">
+                      {userSum.length < 1 ? (
+                        <div className="jumping-dots-loader">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                      ) : (
+                        userSum[2].status
+                      )}
+                    </h3>
                     <p className="text-success ml-2 mb-0 font-weight-medium">
                       user
                     </p>
@@ -105,7 +132,17 @@ const Dashboard = () => {
               <div className="row">
                 <div className="col-9">
                   <div className="d-flex align-items-center align-self-start">
-                    <h3 className="mb-0">2000</h3>
+                    <h3 className="mb-0">
+                      {userSum.length < 1 ? (
+                        <div className="jumping-dots-loader">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                      ) : (
+                        userSum[1].status
+                      )}
+                    </h3>
                     <p className="text-warning ml-2 mb-0 font-weight-medium">
                       user
                     </p>
@@ -113,10 +150,7 @@ const Dashboard = () => {
                 </div>
                 <div className="col-3">
                   <div className="icon icon-box-warning">
-                    <span
-                      className="mdi mdi-account-key
-"
-                    ></span>
+                    <span className="mdi mdi-account-key" />
                   </div>
                 </div>
               </div>
@@ -130,7 +164,17 @@ const Dashboard = () => {
               <div className="row">
                 <div className="col-9">
                   <div className="d-flex align-items-center align-self-start">
-                    <h3 className="mb-0">1000</h3>
+                    <h3 className="mb-0">
+                      {userSum.length < 1 ? (
+                        <div className="jumping-dots-loader">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                      ) : (
+                        userSum[0].status
+                      )}
+                    </h3>
                     <p className="text-danger ml-2 mb-0 font-weight-medium">
                       user
                     </p>
@@ -282,7 +326,10 @@ const Dashboard = () => {
                       <button
                         type="button"
                         class="btn btn-primary btn-icon-text"
-                        onClick={onDetailClient}
+                        // onClick={onDetailClient}
+                        onClick={() => {
+                          console.log(userSum);
+                        }}
                       >
                         <i class="mdi mdi-clipboard-alert"></i> Detail
                       </button>
