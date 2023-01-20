@@ -28,8 +28,8 @@ const invView = () => {
             <div className="container-fluid d-flex justify-content-between">
               <div className="col-lg-6 ps-0">
                 <img
-                  style={{ marginTop: "9%" }}
-                  width={"50%"}
+                  style={{ marginTop: "7%" }}
+                  width={"40%"}
                   src={require("../../../assets/images/stockin_landscape.png")}
                 />
               </div>
@@ -58,20 +58,22 @@ const invView = () => {
               </div>
               <div className="col-lg-3 pe-0">
                 <p className="mb-0 mt-4">
-                  Invoice Date : 23rd Jan 2016 <br />
-                  INVOICE &nbsp;&nbsp;&nbsp;: 25th Jan 2017
+                  <b>DATE</b>&ensp;&ensp;&ensp;&ensp; : &ensp; 23rd Jan 2016{" "}
+                  <br />
+                  <b>INVOICE</b> &ensp;: &ensp; #028
+                  <br />
+                  <b>SALES</b>&ensp;&ensp;&ensp;: &ensp; Desi
                 </p>
-                <p>Due Date : 25th Jan 2017</p>
               </div>
             </div>
             <div className="container-fluid d-flex justify-content-between">
-              <div className="col-lg-3 ps-0">
-                <p className="mt-4 mb-2 text-end">
+              <div className="col-lg-4 ps-0">
+                <p className="mt-3 mb-2 text-end">
                   <b>Invoice to</b>
                 </p>
                 <p className="text-end">
-                  <b>Gaala Sons</b> <br />
-                  C-201, Beykoz-34800, Canada, K1A 0G9.
+                  <b>H.ANANG MOTOR</b> <br />
+                  Jl. Cempaka Pas Perempatan Jalan Nyai Rendem
                 </p>
               </div>
             </div>
@@ -83,49 +85,49 @@ const invView = () => {
                       <th>#</th>
                       <th>Description</th>
                       <th className="text-end">Quantity</th>
-                      <th className="text-end">Unit cost</th>
                       <th className="text-end">Total</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="text-end">
+                    <tr className="text-end ">
                       <td className="text-start">1</td>
-                      <td className="text-start">Brochure Design</td>
+                      <td className="text-start">Stokcin Bengkel</td>
                       <td>2</td>
-                      <td>$20</td>
-                      <td>$40</td>
+                      <td>150.000</td>
                     </tr>
                     <tr className="text-end">
-                      <td className="text-start">2</td>
-                      <td className="text-start">
-                        Web Design Packages(Template) - Basic
+                      <td className="text-white text-right pr-5" colSpan={3}>
+                        SUBTOTAL
                       </td>
-                      <td>05</td>
-                      <td>$25</td>
-                      <td>$125</td>
+                      <td className="text-white">150.000</td>
                     </tr>
                     <tr className="text-end">
-                      <td className="text-start">3</td>
-                      <td className="text-start">Print Ad - Basic - Color</td>
-                      <td>08</td>
-                      <td>$500</td>
-                      <td>$4000</td>
+                      <td className="text-white text-right pr-5" colSpan={3}>
+                        DISC
+                      </td>
+                      <td className="text-white">0</td>
                     </tr>
                     <tr className="text-end">
-                      <td className="text-start">4</td>
-                      <td className="text-start">Down Coat</td>
-                      <td>1</td>
-                      <td>$5</td>
-                      <td>$5</td>
+                      <td className="text-white text-right pr-5" colSpan={3}>
+                        TOTAL (Rp)
+                      </td>
+                      <td className="text-white">150.000</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
             <div className="container-fluid mt-5 w-100">
-              <p className="text-end mb-2">Sub - Total amount: $12,348</p>
-              <p className="text-end">vat (10%) : $138</p>
-              <h4 className="text-end mb-5">Total : $13,986</h4>
+              <h4 className="text-end ">Notes and Insturction</h4>
+              <p className="text-end mb-2">
+                1. Pelase include the invoice number on your check
+              </p>
+              <p className="text-end mb-2">2. Pelase make all the payment to</p>
+              <h5 className="text-end ">
+                Bank Central Asia KCU Matraman, Jakarta
+              </h5>
+              <p className="text-end mb-2">PT MODEL DIGITAL INDONESIA</p>
+              <p className="text-end">IDR a/c. 342.356.6511</p>
             </div>
             <hr style={{ borderColor: "#2c2e33" }} />
             <div className="container-fluid w-100">
