@@ -134,7 +134,7 @@ const invView = () => {
               <a href="#" className="btn btn-primary float-right mt-4 ms-2">
                 <i className="mdi mdi-printer me-1"></i>Print
               </a>
-              <a href="#" className="btn btn-success float-right mt-4">
+              <a href="#" className="btn btn-success float-right mt-4 mr-2">
                 <i className="mdi mdi-telegram me-1"></i>Send Invoice
               </a>
             </div>
