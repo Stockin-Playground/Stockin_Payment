@@ -5,6 +5,7 @@ const getSumClient = () => {
     .get(`http://localhost:8080/api/client/getCount`)
     .then((result) => {
       console.log("berhasil get data client sum");
+      console.log(result);
     })
     .catch((err) => {
       console.log("gagal get data client sum");
