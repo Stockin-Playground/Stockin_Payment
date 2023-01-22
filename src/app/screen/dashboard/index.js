@@ -341,10 +341,7 @@ const Dashboard = () => {
                       <button
                         type="button"
                         class="btn btn-primary btn-icon-text"
-                        // onClick={onDetailClient}
-                        onClick={() => {
-                          console.log(userSum);
-                        }}
+                        onClick={onDetailClient}
                       >
                         <i class="mdi mdi-clipboard-alert"></i> Detail
                       </button>
