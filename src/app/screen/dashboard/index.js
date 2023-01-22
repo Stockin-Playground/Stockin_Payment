@@ -251,9 +251,7 @@ const Dashboard = () => {
           <div className="card">
             <div className="card-body">
               <div className="d-flex flex-row justify-content-between">
-                <h4 className="card-title mb-1">
-                  Pengguan Masa Aktif Akan Berakhir
-                </h4>
+                <h4 className="card-title mb-1">Masa Aktif Akan Berakhir</h4>
                 <p className="text-muted mb-1">Tanggal Masa Aktif</p>
               </div>
               <div className="row">
