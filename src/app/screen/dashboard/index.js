@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useHistory } from "react-router-dom";
-import { getSumClient, getClient } from "./dashboardAPI";
+import { getSumClient, getExpired } from "./dashboardAPI";
 
 const Dashboard = () => {
   const history = useHistory();
@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   const getUser = async () => {
     let dataClient = await getSumClient();
-    let expiredClient = await getClient();
+    let expiredClient = await getExpired();
     let allCount = 0;
     dataClient.data.map((item) => {
       allCount = allCount + item.status;
@@ -258,7 +258,7 @@ const Dashboard = () => {
               <div className="row">
                 <div className="col-12">
                   <div className="preview-list">
-                    {expClient.map(() => {
+                    {expClient.map((item) => {
                       return (
                         <>
                           <div className="preview-item border-bottom">
@@ -269,10 +269,10 @@ const Dashboard = () => {
                             </div>
                             <div className="preview-item-content d-sm-flex flex-grow">
                               <div className="flex-grow">
-                                <h6 className="preview-subject">
-                                  PT Development
-                                </h6>
-                                <p className="text-muted mb-0">Micro</p>
+                                <h6 className="preview-subject">{item.nama}</h6>
+                                <p className="text-muted mb-0">
+                                  {item.stk_paket_client}
+                                </p>
                               </div>
                               <div className="mr-auto text-sm-right pt-2 pt-sm-0">
                                 <p className="text-muted">2 hari</p>
@@ -341,7 +341,10 @@ const Dashboard = () => {
                       <button
                         type="button"
                         class="btn btn-primary btn-icon-text"
-                        onClick={onDetailClient}
+                        // onClick={onDetailClient}
+                        onClick={() => {
+                          console.log(expClient);
+                        }}
                       >
                         <i class="mdi mdi-clipboard-alert"></i> Detail
                       </button>
