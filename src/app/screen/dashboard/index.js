@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import moment from "moment";
 import { Doughnut } from "react-chartjs-2";
 import { useHistory } from "react-router-dom";
 import { getSumClient, getExpired } from "./dashboardAPI";
@@ -295,9 +296,23 @@ const Dashboard = () => {
                                 </p>
                               </div>
                               <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                                <p className="text-muted">2 hari</p>
+                                <p className="text-muted">
+                                  {moment(item.stk_expired).isBefore(moment())
+                                    ? "- " +
+                                      moment().diff(
+                                        moment(item.stk_expired).format(),
+                                        "days"
+                                      ) +
+                                      " Hari"
+                                    : "" +
+                                      moment().diff(
+                                        moment(item.stk_expired).format(),
+                                        "days"
+                                      ) +
+                                      " Hari"}
+                                </p>
                                 <p className="text-muted mb-0">
-                                  {item.stk_expired + " "}
+                                  {moment(item.stk_expired).format("LL") + " "}
                                 </p>
                               </div>
                             </div>
