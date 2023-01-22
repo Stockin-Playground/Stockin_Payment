@@ -14,7 +14,7 @@ const Dashboard = () => {
   }, []);
 
   const getUser = async () => {
-    let dataClient = await getSumClient();
+    let dataClient = await getSumClient("status");
     let expiredClient = await getExpired();
     let allCount = 0;
     dataClient.data.map((item) => {
