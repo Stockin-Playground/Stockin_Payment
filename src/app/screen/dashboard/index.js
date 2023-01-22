@@ -7,6 +7,7 @@ import { getSumClient, getExpired } from "./dashboardAPI";
 const Dashboard = () => {
   const history = useHistory();
   const [userSum, setUserSum] = useState([]);
+  const [userApp, setUserApp] = useState([]);
   const [expClient, setExptClient] = useState([]);
 
   useEffect(() => {
@@ -14,18 +15,33 @@ const Dashboard = () => {
   }, []);
 
   const getUser = async () => {
-    let dataClient = await getSumClient();
+    let dataClient = await getSumClient("status");
+    let dataUserApp = await getSumClient("app");
     let expiredClient = await getExpired();
     let allCount = 0;
+    let ucApp = [];
+    let uApp = [];
+    let cApp = [];
+
     dataClient.data.map((item) => {
       allCount = allCount + item.status;
     });
     dataClient.data.push({
       allCount: allCount,
     });
+    dataUserApp.data.map((item) => {
+      console.log(item);
+      uApp.push(item.user_status);
+      cApp.push(item.count);
+    });
+
+    console.log("data app");
+    ucApp.push(uApp, cApp);
 
     setExptClient(expiredClient.data);
     setUserSum(dataClient.data);
+    setUserApp(dataUserApp.data);
+    setUserApp(ucApp);
   };
 
   const transactionHistoryData = {
@@ -251,9 +267,7 @@ const Dashboard = () => {
           <div className="card">
             <div className="card-body">
               <div className="d-flex flex-row justify-content-between">
-                <h4 className="card-title mb-1">
-                  Pengguan Masa Aktif Akan Berakhir
-                </h4>
+                <h4 className="card-title mb-1">Masa Aktif Akan Berakhir</h4>
                 <p className="text-muted mb-1">Tanggal Masa Aktif</p>
               </div>
               <div className="row">
