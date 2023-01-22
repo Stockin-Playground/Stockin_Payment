@@ -263,21 +263,41 @@ const Dashboard = () => {
                         <>
                           <div className="preview-item border-bottom">
                             <div className="preview-thumbnail">
-                              <div className="preview-icon bg-primary">
-                                <i className="mdi mdi-store"></i>
+                              <div
+                                className={
+                                  item.user_status == "Micro"
+                                    ? "preview-icon bg-primary"
+                                    : item.user_status == "Retail"
+                                    ? "preview-icon bg-warning"
+                                    : item.user_status == "Bengkel"
+                                    ? "preview-icon bg-success"
+                                    : "preview-icon bg-danger"
+                                }
+                              >
+                                <i
+                                  className={
+                                    item.user_status == "Micro"
+                                      ? "mdi mdi-store"
+                                      : item.user_status == "Retail"
+                                      ? "mdi mdi-store-24-hour"
+                                      : item.user_status == "Bengkel"
+                                      ? "mdi mdi-car-wash"
+                                      : "mdi mdi-home-modern"
+                                  }
+                                />
                               </div>
                             </div>
                             <div className="preview-item-content d-sm-flex flex-grow">
                               <div className="flex-grow">
                                 <h6 className="preview-subject">{item.nama}</h6>
                                 <p className="text-muted mb-0">
-                                  {item.stk_paket_client}
+                                  {item.user_status}
                                 </p>
                               </div>
                               <div className="mr-auto text-sm-right pt-2 pt-sm-0">
                                 <p className="text-muted">2 hari</p>
                                 <p className="text-muted mb-0">
-                                  12 Januari 2023{" "}
+                                  {item.stk_expired + " "}
                                 </p>
                               </div>
                             </div>
