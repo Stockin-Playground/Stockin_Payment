@@ -33,14 +33,31 @@ const InvoiceTable = () => {
           <div className="card-body">
             <h4 className="card-title">Table Invoice </h4>
             <div className="table-responsive">
-            <label>
-              <input type="search" class="form-control mb-2" placeholder="Search" aria-controls="order-listing"></input>
-            </label>
-            <button type="button" class="btn float-right mt-10 mb 4 btn-primary btn-icon-text">
-             <i
-               style={{marginTop : "15px" }} 
-               class="mdi mdi-file-check btn-icon-prepend mb2">
-              </i> Buat Invoice </button>
+              <label>
+                <input
+                  type="search"
+                  class="form-control mt-2 mb-3"
+                  placeholder="Search"
+                  aria-controls="order-listing"
+                ></input>
+              </label>
+              {/* <button
+                type="button"
+                class="btn float-right mt-3 mb-4 btn-primary btn-icon-text"
+              >
+                <i
+                  style={{ marginTop: "15px" }}
+                  class="mdi mdi-file-check btn-icon-prepend mb2"
+                ></i>{" "}
+                Buat Invoice{" "}
+              </button> */}
+              <button
+                type="button"
+                className="btn float-right btn-social-icon-text btn-twitter"
+              >
+                <i className="mdi mdi-file-check btn-icon-prepend"></i>Buat
+                Invoice
+              </button>
               <table className="table table-bordered">
                 <thead>
                   <tr>
@@ -66,8 +83,10 @@ const InvoiceTable = () => {
                     <td> May 15, 2021 </td>
                     <td>
                       <button
-                        one onClick={onInvoice}
-                        class="btn btn-outline-secondary">
+                        one
+                        onClick={onInvoice}
+                        class="btn btn-outline-secondary"
+                      >
                         View
                       </button>
                     </td>
@@ -181,8 +200,9 @@ const InvoiceTable = () => {
                     <td> Juli 21, 2022 </td>
                     <td>
                       <button
-                        onClick={onInvoice} 
-                        class="btn btn-outline-secondary">
+                        onClick={onInvoice}
+                        class="btn btn-outline-secondary"
+                      >
                         View
                       </button>
                     </td>
@@ -237,9 +257,7 @@ const InvoiceTable = () => {
                     <td> Rp.24.350.000 </td>
                     <td> Maret 12, 2022 </td>
                     <td>
-                      <button  class="btn btn-outline-secondary">
-                        View
-                      </button>
+                      <button class="btn btn-outline-secondary">View</button>
                     </td>
                     <td style={{ textAlign: "center" }}>
                       <button
@@ -292,9 +310,7 @@ const InvoiceTable = () => {
                     <td> Rp.11.260.000 </td>
                     <td> Des 08, 2022 </td>
                     <td>
-                      <button  class="btn btn-outline-secondary">
-                        View
-                      </button>
+                      <button class="btn btn-outline-secondary">View</button>
                     </td>
                     <td style={{ textAlign: "center" }}>
                       <button
