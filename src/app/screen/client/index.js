@@ -1,13 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getClient } from "./clientApi";
 
 
+
+
+const BasicTable= () => {
+  const [client, setDataClient] = useState([])
+
+
 useEffect(() => {
-  // getClient();
+  getAllClient()
 }, []); 
 
+const getAllClient = async() =>{
+  setDataClient(await getClient()) 
+}
 
-const BasicTable= () => {  
+
     return (
       <div>
         <div className="page-header">
@@ -48,12 +57,20 @@ const BasicTable= () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      {client.map((item,index)=>{
+                        return (
+                          <>
+                          <tr>
                         <td>1</td>
-                        <td>Pradit</td>
-                        <td>prdt@gmail.com</td>
-                        <td>087232736824</td>
-                        <td><label className="badge badge-success">
+                        <td>{item.nama}</td>
+                        <td>{item.email}</td>
+                        <td>{item.nohp}</td>
+                        <td><label className={
+                             item.status == "Success"  
+                            ?     "badge badge-success"
+                            :     "badge badge-warning"
+                           }
+                         >
                             Succes
                           </label>
                         </td>
@@ -61,60 +78,10 @@ const BasicTable= () => {
                           <div class="badge badge-primary">Micro</div>
                         </td>                       
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Zaki</td>
-                        <td>Zakiowe@gmail.com</td>
-                        <td>038636253673</td>
-                        <td>
-                          <label className="badge badge-success">
-                            Succes
-                          </label>
-                        </td>
-                        <td>
-                        <label className="badge badge-primary">Primary</label>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Bejo</td>
-                        <td>paijo12@gmai.com</td>
-                        <td>081237163662</td>
-                        <td>
-                          <label className="badge badge-warning">Pending</label>
-                        </td>
-                        <td>
-                        <div class="badge badge-danger">Enterprise</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Abdul</td>
-                        <td>Abdullyy@gmail.com</td>
-                        <td>0852162547283</td>
-                        <td>
-                          <label className="badge badge-success">
-                            Succes
-                          </label>
-                        </td>
-                        <td>
-                        <div class="badge badge-success">Bengkel</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>Aldi</td>
-                        <td>DyyTeles@yahoo.com</td>
-                        <td>089426388493</td>
-                        <td>
-                          <label className="badge badge-warning">
-                            pending
-                          </label>
-                        </td>
-                        <td>
-                          <div class="badge badge-warning">Retail</div>
-                        </td>
-                      </tr>
+                          </>
+                        )
+                      })}
+                      
                     </tbody>
                   </table>
                   <nav className="btn float-right m-2">
