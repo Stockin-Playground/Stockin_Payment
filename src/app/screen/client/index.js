@@ -66,16 +66,25 @@ const getAllClient = async() =>{
                         <td>{item.email}</td>
                         <td>{item.nohp}</td>
                         <td><label className={
-                             item.status == "Success"  
+                             item.stk_state == "FREE"  
                             ?     "badge badge-success"
                             :     "badge badge-warning"
                            }
                          >
-                            Succes
+                            {item.stk_state}
                           </label>
                         </td>
                         <td>
-                          <div class="badge badge-primary">Micro</div>
+                          <div class={
+                           item.stk_paket_client == "1" ?"badge badge-primary":  
+                           item.stk_paket_client == "2" ?"badge badge-danger":
+                           item.stk_paket_client == "3" ?"badge badge-warning":
+                           "badge badge-success"
+                           
+                          }
+                            >
+                              {item.stk_paket_client}
+                            </div>
                         </td>                       
                       </tr>
                           </>
