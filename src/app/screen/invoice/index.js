@@ -41,16 +41,6 @@ const InvoiceTable = () => {
                   aria-controls="order-listing"
                 ></input>
               </label>
-              {/* <button
-                type="button"
-                class="btn float-right mt-3 mb-4 btn-primary btn-icon-text"
-              >
-                <i
-                  style={{ marginTop: "15px" }}
-                  class="mdi mdi-file-check btn-icon-prepend mb2"
-                ></i>{" "}
-                Buat Invoice{" "}
-              </button> */}
               <button
                 type="button"
                 className="btn float-right btn-social-icon-text btn-twitter"
