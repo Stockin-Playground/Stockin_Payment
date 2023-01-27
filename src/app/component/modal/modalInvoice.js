@@ -1,12 +1,12 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
 
-const modalInvoice = ({}) => {
+const modalInvoice = ({ showModal, onModal }) => {
   return (
     <div className="col-12 grid-margin">
       <Modal
         size="lg"
-        show={false}
+        show={showModal}
         aria-labelledby="example-modal-sizes-title-lg"
       >
         <Modal.Body>
@@ -130,14 +130,17 @@ const modalInvoice = ({}) => {
                 </div>
                 <hr style={{ borderColor: "#2c2e33" }} />
                 <div className="container-fluid w-100">
-                  <a href="#" className="btn btn-danger float-right mt-4 ms-2">
+                  <a
+                    onClick={onModal}
+                    className="btn btn-danger float-right mt-4 ms-2"
+                  >
                     <i className="mdi mdi-close me-1"></i>Tutup
                   </a>
                   <a href="#" className="btn btn-primary float-right mt-4 mr-2">
                     <i className="mdi mdi-printer me-1"></i>Print
                   </a>
                   <a href="#" className="btn btn-success float-right mt-4 mr-2">
-                    <i className="mdi mdi-telegram me-1"></i>Send Invoice
+                    <i className="mdi mdi-telegram me-1"></i>Kirim Invoice
                   </a>
                 </div>
               </div>

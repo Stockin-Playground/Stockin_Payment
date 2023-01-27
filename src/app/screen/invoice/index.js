@@ -6,11 +6,17 @@ import { Modal } from "../../component";
 const InvoiceTable = () => {
   const history = useHistory();
   const [alert, setAlert] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const onInvoice = useCallback(
     () => history.push("/tables/invoice-view"),
     [history]
   );
+
+  const onModal = () => {
+    console.log("jaln invoice");
+    setShowModal(!showModal);
+  };
 
   return (
     <div>
@@ -75,7 +81,7 @@ const InvoiceTable = () => {
                     <td>
                       <button
                         one
-                        onClick={onInvoice}
+                        onClick={onModal}
                         class="btn btn-outline-secondary"
                       >
                         View
@@ -385,7 +391,7 @@ const InvoiceTable = () => {
           </div>
         </div>
       </div>
-      {<Modal />}
+      {<Modal showModal={showModal} onModal={onModal} />}
     </div>
   );
 };
