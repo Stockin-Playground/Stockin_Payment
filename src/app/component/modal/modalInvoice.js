@@ -6,7 +6,7 @@ const modalInvoice = ({}) => {
     <div className="col-12 grid-margin">
       <Modal
         size="lg"
-        show={true}
+        show={false}
         aria-labelledby="example-modal-sizes-title-lg"
       >
         <Modal.Body>
