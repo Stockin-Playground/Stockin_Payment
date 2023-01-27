@@ -3,6 +3,8 @@ import Swal from "sweetalert2";
 import { useHistory } from "react-router-dom";
 import { getInvoice } from "./InvoiceApi";
 import { Modal } from "../../component";
+import moment from "moment";
+import { rupiah } from "../../helper";
 
 const InvoiceTable = () => {
   const history = useHistory();
@@ -96,8 +98,8 @@ const InvoiceTable = () => {
                               {item.status}
                             </label>
                           </td>
-                          <td> Rp.94.850.000 </td>
-                          <td>{item.created_at}</td>
+                          <td>{rupiah(item.invoice)}</td>
+                          <td>{moment(item.created_at).format("LL")}</td>
                           <td>
                             <button
                               one
