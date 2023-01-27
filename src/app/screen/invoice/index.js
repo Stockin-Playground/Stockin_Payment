@@ -12,7 +12,7 @@ const InvoiceTable = () => {
 
   useEffect(() => {
     getInvoiceAll();
-  }, []);
+  }, []); 
 
   const getInvoiceAll = async () => {
     setInvoice(await getInvoice());
