@@ -16,8 +16,6 @@ const InvoiceTable = () => {
 
   const getInvoiceAll = async () => {
     setInvoice(await getInvoice());
-    console.log("tampill data dari BE");
-    console.log(await getInvoice());
   };
 
   const onInvoice = useCallback(
@@ -26,7 +24,6 @@ const InvoiceTable = () => {
   );
 
   const onModal = () => {
-    console.log("jaln invoice");
     setShowModal(!showModal);
   };
 
