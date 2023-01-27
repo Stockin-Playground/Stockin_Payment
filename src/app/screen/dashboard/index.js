@@ -9,15 +9,7 @@ const Dashboard = () => {
   const [userSum, setUserSum] = useState([]);
   const [userApp, setUserApp] = useState([]);
   const [expClient, setExptClient] = useState([]);
-  const [transactionHistoryData, setTransactionHistoryData] = useState({
-    labels: ["Micro", "Retail", "Bengkel"],
-    datasets: [
-      {
-        data: [2000, 2000, 1000],
-        backgroundColor: ["#0090e7", "#ffab00", "#00d25b"],
-      },
-    ],
-  });
+  const [transactionHistoryData, setTransactionHistoryData] = useState("");
 
   useEffect(() => {
     getUser();
@@ -95,11 +87,7 @@ const Dashboard = () => {
                     <div className="d-flex align-items-center align-self-start">
                       <h3 className="mb-0">
                         {userSum.length < 1 ? (
-                          <div className="jumping-dots-loader">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </div>
+                          <div className="moving-square-loader"></div>
                         ) : (
                           userSum[3].allCount
                         )}
@@ -132,11 +120,7 @@ const Dashboard = () => {
                     <div className="d-flex align-items-center align-self-start">
                       <h3 className="mb-0">
                         {userSum.length < 1 ? (
-                          <div className="jumping-dots-loader">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </div>
+                          <div className="moving-square-loader"></div>
                         ) : (
                           userSum[2].status
                         )}
@@ -166,11 +150,7 @@ const Dashboard = () => {
                     <div className="d-flex align-items-center align-self-start">
                       <h3 className="mb-0">
                         {userSum.length < 1 ? (
-                          <div className="jumping-dots-loader">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </div>
+                          <div className="moving-square-loader"></div>
                         ) : (
                           userSum[1].status
                         )}
@@ -200,11 +180,7 @@ const Dashboard = () => {
                     <div className="d-flex align-items-center align-self-start">
                       <h3 className="mb-0">
                         {userSum.length < 1 ? (
-                          <div className="jumping-dots-loader">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </div>
+                          <div class="moving-square-loader"></div>
                         ) : (
                           userSum[0].status
                         )}
@@ -216,10 +192,7 @@ const Dashboard = () => {
                   </div>
                   <div className="col-3">
                     <div className="icon icon-box-danger">
-                      <span
-                        className="mdi mdi-account-remove
-"
-                      ></span>
+                      <span className="mdi mdi-account-remove"></span>
                     </div>
                   </div>
                 </div>
@@ -236,18 +209,24 @@ const Dashboard = () => {
               <div className="card-body">
                 <h4 className="card-title">Data Pengguna</h4>
                 <div className="aligner-wrapper">
-                  <Doughnut
-                    data={transactionHistoryData}
-                    options={transactionHistoryOptions}
-                  />
-                  <div className="absolute center-content">
-                    <h5 className="font-weight-normal text-whiite text-center mb-2 text-white">
-                      5000
-                    </h5>
-                    <p className="text-small text-muted text-center mb-0">
-                      Total
-                    </p>
-                  </div>
+                  {transactionHistoryData != "" ? (
+                    <>
+                      <Doughnut
+                        data={transactionHistoryData}
+                        options={transactionHistoryOptions}
+                      />
+                      <div className="absolute center-content">
+                        <h5 className="font-weight-normal text-whiite text-center mb-2 text-white">
+                          5000
+                        </h5>
+                        <p className="text-small text-muted text-center mb-0">
+                          Total
+                        </p>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="flip-square-loader mx-auto" />
+                  )}
                 </div>
                 {userApp.map((item) => {
                   return (
