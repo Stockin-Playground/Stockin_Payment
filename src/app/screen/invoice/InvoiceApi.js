@@ -5,7 +5,7 @@ const getInvoice = () =>{
        axios
        .get ("http://localhost:8080/api/payment/get")
        .then ((result) =>{
-        console.log ("berhasil menampilkan data payment")
+        console.log ("berhasil menampilkan data client")
         resolve(result.data.data);
        })
        .catch ((err) =>{
