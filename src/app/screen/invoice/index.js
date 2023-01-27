@@ -102,7 +102,6 @@ const InvoiceTable = () => {
                           <td> Rp.94.850.000 </td>
                           <td>{item.created_at}</td>
                           <td>
-                            ]
                             <button
                               one
                               onClick={onModal}
