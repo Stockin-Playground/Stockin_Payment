@@ -109,7 +109,7 @@ const Dashboard = () => {
                 <div className="col-9">
                   <div className="d-flex align-items-center align-self-start">
                     <h3 className="mb-0">
-                      {userSum.length < 1 ? "90" : userSum[1].status}
+                      {/* {userSum.length < 1 ? "90" : userSum[1].status} */}
                     </h3>
                     <p className="text-warning ml-2 mb-0 font-weight-medium">
                       user
