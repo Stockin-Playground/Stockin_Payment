@@ -77,13 +77,18 @@ const getAllClient = async() =>{
                         <td>
                           <div class={
                            item.stk_paket_client == "1" ?"badge badge-primary":  
-                           item.stk_paket_client == "2" ?"badge badge-danger":
-                           item.stk_paket_client == "3" ?"badge badge-warning":
+                           item.stk_paket_client == "2" ?"badge badge-warning":
+                           item.stk_paket_client == "3" ?"badge badge-danger":
                            "badge badge-success"
                            
                           }
                             >
-                              {item.stk_paket_client}
+                              {item.stk_paket_client == "1" ?"micro":
+                               item.stk_paket_client == "2" ?"retail":
+                               item.stk_paket_client == "3" ?"enterprice":
+                               item.stk_paket_client == "4" ?"bengkel":
+                               "badge badge-success"
+                              }
                             </div>
                         </td>                       
                       </tr>
