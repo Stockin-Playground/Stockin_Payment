@@ -17,6 +17,7 @@ const getAllClient = async() =>{
 }
 
 
+
     return (
       <div>
         <div className="page-header">
@@ -39,7 +40,10 @@ const getAllClient = async() =>{
             <div className="card">
               <div className="card-body">
                 <h4 className="card-title">Basic Table</h4>
-                <h4 className="card-title">BY: Raden Salaf</h4>
+                <label>
+                    <input type="search" class="form-control" placeholder="Search" aria-controls="order-listing">
+                      </input>
+                    </label>
                 <p className="card-description">
                   {" "}
                  
