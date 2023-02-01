@@ -17,7 +17,7 @@ export class Login extends Component {
                 <h6 className="font-weight-light">Sign in to continue.</h6>
                 <Form className="pt-3">
                   <Form.Group className="d-flex search-field">
-                    <Form.Control type="email" placeholder="Username" size="lg" className="h-auto" />
+                    <Form.Control type="email" placeholder="Email" size="lg" className="h-auto" />
                   </Form.Group>
                   <Form.Group className="d-flex search-field">
                     <Form.Control type="password" placeholder="Password" size="lg" className="h-auto" />
@@ -33,7 +33,7 @@ export class Login extends Component {
                         Keep me signed in
                       </label>
                     </div>
-                    <a href="!#" onClick={event => event.preventDefault()} className="auth-link text-muted">Forgot password?</a>
+                    <a href="getLogin" onClick={event => event.stopPropagation()} className="auth-link text-muted">Forgot password?</a>
                   </div>
                  
                   
