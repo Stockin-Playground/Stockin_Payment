@@ -3,7 +3,7 @@ import axios from "axios";
 const getClient = () => {
     return new Promise ((resolve,reject) => {
     axios
-       .get("http://localhost:8080/api/client/get")
+       .get("http://invsapi.stockin.co.id/api/client/get")
        .then((result) =>{
         console.log("berhasil menampilkan data");
         resolve(result.data.data);
