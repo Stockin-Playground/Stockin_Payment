@@ -8,6 +8,7 @@ const Dashboard = lazy(() => import("./screen/dashboard"));
 const Client = lazy(() => import("./screen/client"));
 const InvoiceTable = lazy(() => import("./screen/invoice"));
 const InvoiceView = lazy(() => import("./screen/invoice/invView"));
+const FormInvoice = lazy(() => import("./screen/invoice/formInvoice"));
 
 const Error404 = lazy(() => import("./screen/error-pages/Error404"));
 const Error500 = lazy(() => import("./screen/error-pages/Error500"));
@@ -25,6 +26,7 @@ class AppRoutes extends Component {
           <Route path="/tables/basic-table" component={Client} />
           <Route path="/tables/invoice-table" component={InvoiceTable} />
           <Route path="/tables/invoice-view" component={InvoiceView} />
+          <Route path="/tables/invoice-form" component={FormInvoice} />
 
           <Route path="/user-pages/login-1" component={Login} />
           <Route path="/user-pages/register-1" component={Register1} />

@@ -22,7 +22,7 @@ const InvoiceTable = () => {
   };
 
   const onInvoice = useCallback(
-    () => history.push("/tables/invoice-view"),
+    () => history.push("/tables/invoice-form"),
     [history]
   );
 
@@ -64,9 +64,10 @@ const InvoiceTable = () => {
               <button
                 type="button"
                 className="btn float-right btn-social-icon-text btn-twitter"
+                onClick={() => onInvoice()}
               >
-                <i className="mdi mdi-file-check btn-icon-prepend"></i>Buat
-                Invoice
+                <i className="mdi mdi-file-check btn-icon-prepend" />
+                Buat Invoice
               </button>
               <table className="table table-bordered">
                 <thead>
