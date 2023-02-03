@@ -53,7 +53,7 @@ export class FormInvoice extends Component {
                   </div>
                   <Typeahead
                     inputProps={{
-                      className: "form-control ml-2 mb-5 col-md-10",
+                      className: "form-control ml-2 mb-4 col-md-10",
                     }}
                     placeholder="Search"
                     onChange={(selected) => {
@@ -68,13 +68,28 @@ export class FormInvoice extends Component {
                     <div className="col-md-6">
                       <Form.Group className="row">
                         <label className="col-sm-3 col-form-label">
-                          Nama Penerima (Client)
+                          Nama Penerima
                         </label>
                         <div className="col-sm-9">
                           <Form.Control type="text" />
                         </div>
                       </Form.Group>
                     </div>
+                    <div className="col-md-6">
+                      <Form.Group className="row">
+                        <label className="col-sm-3 col-form-label">
+                          Gender
+                        </label>
+                        <div className="col-sm-9">
+                          <select className="form-control">
+                            <option>Male</option>
+                            <option>Female</option>
+                          </select>
+                        </div>
+                      </Form.Group>
+                    </div>
+                  </div>
+                  <div className="row">
                     <div className="col-md-6">
                       <Form.Group className="row">
                         <label className="col-sm-3 col-form-label">
@@ -86,21 +101,6 @@ export class FormInvoice extends Component {
                             id="exampleTextarea1"
                             rows="4"
                           ></textarea>
-                        </div>
-                      </Form.Group>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <Form.Group className="row">
-                        <label className="col-sm-3 col-form-label">
-                          Gender
-                        </label>
-                        <div className="col-sm-9">
-                          <select className="form-control">
-                            <option>Male</option>
-                            <option>Female</option>
-                          </select>
                         </div>
                       </Form.Group>
                     </div>
@@ -140,7 +140,7 @@ export class FormInvoice extends Component {
                         <label className="col-sm-3 col-form-label">
                           Status Berlangganan
                         </label>
-                        <div className="col-sm-3">
+                        <div className="col-sm-2">
                           <div className="form-check">
                             <label className="form-check-label">
                               <input
@@ -155,7 +155,7 @@ export class FormInvoice extends Component {
                             </label>
                           </div>
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-sm-2">
                           <div className="form-check">
                             <label className="form-check-label">
                               <input
@@ -169,7 +169,7 @@ export class FormInvoice extends Component {
                             </label>
                           </div>
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-sm-4">
                           <div className="form-check">
                             <label className="form-check-label">
                               <input
@@ -185,8 +185,24 @@ export class FormInvoice extends Component {
                         </div>
                       </Form.Group>
                     </div>
+                    {/* <p className="card-description"> Address </p> */}
+                    <div className="col-sm-12 mt-4">
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-icon-text ml-3 float-right"
+                      >
+                        <i className="mdi mdi-close btn-icon-prepend"></i>{" "}
+                        Cancel{" "}
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-icon-text float-right"
+                      >
+                        <i className="mdi mdi-file-check btn-icon-prepend"></i>{" "}
+                        Submit{" "}
+                      </button>
+                    </div>
                   </div>
-                  <p className="card-description"> Address </p>
                 </form>
               </div>
             </div>
