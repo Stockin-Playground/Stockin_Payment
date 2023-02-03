@@ -11,6 +11,7 @@ const InvoiceTable = () => {
   const [alert, setAlert] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [invoice, setInvoice] = useState([]);
+  const [itemSelected, setItemSelected] = useState([]);
 
   useEffect(() => {
     getInvoiceAll();
@@ -25,7 +26,8 @@ const InvoiceTable = () => {
     [history]
   );
 
-  const onModal = () => {
+  const onModal = (item) => {
+    setItemSelected(item);
     setShowModal(!showModal);
   };
 
@@ -70,7 +72,7 @@ const InvoiceTable = () => {
                 <thead>
                   <tr>
                     <th> No </th>
-                    <th> Nama Client </th>
+                    {/* <th> Nama Client </th> */}
                     <th> Status </th>
                     <th> Pembayaran </th>
                     <th> Tanggal Pembayaran </th>
@@ -86,7 +88,7 @@ const InvoiceTable = () => {
                       <>
                         <tr key={index}>
                           <td> {index + 1} </td>
-                          <td> {item.id_sys_client} </td>
+                          {/* <td> {item.id_sys_client} </td> */}
                           <td>
                             <label
                               className={
@@ -103,7 +105,9 @@ const InvoiceTable = () => {
                           <td>
                             <button
                               one
-                              onClick={onModal}
+                              onClick={() => {
+                                onModal(item);
+                              }}
                               class="btn btn-outline-secondary"
                             >
                               View
@@ -194,7 +198,13 @@ const InvoiceTable = () => {
           </div>
         </div>
       </div>
-      {<Modal showModal={showModal} onModal={onModal} />}
+      {
+        <Modal
+          showModal={showModal}
+          onModal={onModal}
+          itemSelected={itemSelected}
+        />
+      }
     </div>
   );
 };
