@@ -3,7 +3,7 @@ import axios from "axios";
 const getSumClient = (where) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`http://localhost:8080/api/client/getCount?by=${where}`)
+      .get(`${process.env.REACT_APP_URLSERVER}api/client/getCount?by=${where}`)
       .then((result) => {
         console.log("berhasil get data client sum");
         resolve(result.data);
@@ -18,7 +18,7 @@ const getSumClient = (where) => {
 const getClient = () => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`http://localhost:8080/api/client/get`)
+      .get(`${process.env.REACT_APP_URLSERVER}api/client/get`)
       .then((result) => {
         console.log("berhasil get data client expired");
         resolve(result.data);
@@ -33,7 +33,7 @@ const getClient = () => {
 const getExpired = () => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`http://localhost:8080/api/client/getExpired`)
+      .get(`${process.env.REACT_APP_URLSERVER}api/client/getExpired`)
       .then((result) => {
         console.log("berhasil get data client expired");
         resolve(result.data);

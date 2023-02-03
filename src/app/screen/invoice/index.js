@@ -1,16 +1,35 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router-dom";
+import { getInvoice } from "./InvoiceApi";
 import { Modal } from "../../component";
+import moment from "moment";
+import { rupiah } from "../../helper";
 
 const InvoiceTable = () => {
   const history = useHistory();
   const [alert, setAlert] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [invoice, setInvoice] = useState([]);
+  const [itemSelected, setItemSelected] = useState([]);
+
+  useEffect(() => {
+    getInvoiceAll();
+  }, []);
+
+  const getInvoiceAll = async () => {
+    setInvoice(await getInvoice());
+  };
 
   const onInvoice = useCallback(
     () => history.push("/tables/invoice-view"),
     [history]
   );
+
+  const onModal = (item) => {
+    setItemSelected(item);
+    setShowModal(!showModal);
+  };
 
   return (
     <div>
@@ -53,7 +72,7 @@ const InvoiceTable = () => {
                 <thead>
                   <tr>
                     <th> No </th>
-                    <th> Nama Client </th>
+                    {/* <th> Nama Client </th> */}
                     <th> Status </th>
                     <th> Pembayaran </th>
                     <th> Tanggal Pembayaran </th>
@@ -64,287 +83,81 @@ const InvoiceTable = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 1 </td>
-                    <td> Aziz Surachman </td>
-                    <td>
-                      <label class="badge badge-warning">Pending</label>
-                    </td>
-                    <td> Rp.94.850.000 </td>
-                    <td> May 15, 2021 </td>
-                    <td>
-                      <button
-                        one
-                        onClick={onInvoice}
-                        class="btn btn-outline-secondary"
-                      >
-                        View
-                      </button>
-                    </td>
-                    <td style={{ textAlign: "center" }}>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-rounded btn-icon"
-                      >
-                        <i
-                          style={{ marginLeft: "10%" }}
-                          class="mdi mdi-pencil"
-                        ></i>
-                      </button>
-                    </td>
-                    <td style={{ textAlign: "center" }}>
-                      <button
-                        type="button"
-                        class="btn btn-danger btn-rounded btn-icon"
-                        onClick={() => {
-                          Swal.fire({
-                            title: "Apakah sudah benar ?",
-                            text: "Aziz Surachman",
-                            icon: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "#3085d6",
-                            cancelButtonColor: "#d33",
-                            confirmButtonText: "Hapus",
-                          }).then((result) => {
-                            if (result.isConfirmed) {
-                              Swal.fire(
-                                "Data telah dihapus!",
-                                "Aziz Surachman",
-                                "success"
-                              );
-                            }
-                          });
-                        }}
-                      >
-                        <i
-                          class="mdi mdi-close-box"
-                          style={{ marginLeft: "10%" }}
-                        ></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> 2 </td>
-                    <td> Abiyasa Fadli Akbar </td>
-                    <td>
-                      <label class="badge badge-success">Success</label>
-                    </td>
-                    <td> Rp.89.450.000 </td>
-                    <td> Feb 24, 2022 </td>
-                    <td>
-                      <button
-                        onClick={onInvoice}
-                        class="btn btn-outline-secondary"
-                      >
-                        View
-                      </button>
-                    </td>
-                    <td style={{ textAlign: "center" }}>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-rounded btn-icon"
-                      >
-                        <i
-                          style={{ marginLeft: "10%" }}
-                          class="mdi mdi-pencil"
-                        ></i>
-                      </button>
-                    </td>
-                    <td style={{ textAlign: "center" }}>
-                      <button
-                        type="button"
-                        class="btn btn-danger btn-rounded btn-icon"
-                        onClick={() => {
-                          Swal.fire({
-                            title: "Apakah sudah benar ?",
-                            text: "Abiyasa Fadli Akbar",
-                            icon: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "#3085d6",
-                            cancelButtonColor: "#d33",
-                            confirmButtonText: "Hapus",
-                          }).then((result) => {
-                            if (result.isConfirmed) {
-                              Swal.fire(
-                                "Data telah dihapus!",
-                                "Abiyasa Fadli Akbar",
-                                "success"
-                              );
-                            }
-                          });
-                        }}
-                      >
-                        <i
-                          class="mdi mdi-close-box"
-                          style={{ marginLeft: "10%" }}
-                        ></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> 3 </td>
-                    <td> Bejo Paijo </td>
-                    <td>
-                      <label class="badge badge-success">Success</label>
-                    </td>
-                    <td> Rp.12.050.000 </td>
-                    <td> Juli 21, 2022 </td>
-                    <td>
-                      <button
-                        onClick={onInvoice}
-                        class="btn btn-outline-secondary"
-                      >
-                        View
-                      </button>
-                    </td>
-                    <td style={{ textAlign: "center" }}>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-rounded btn-icon"
-                      >
-                        <i
-                          style={{ marginLeft: "10%" }}
-                          class="mdi mdi-pencil"
-                        ></i>
-                      </button>
-                    </td>
-                    <td style={{ textAlign: "center" }}>
-                      <button
-                        type="button"
-                        class="btn btn-danger btn-rounded btn-icon"
-                        onClick={() => {
-                          Swal.fire({
-                            title: "Apakah sudah benar ?",
-                            text: "Bejo Paijo",
-                            icon: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "#3085d6",
-                            cancelButtonColor: "#d33",
-                            confirmButtonText: "Hapus",
-                          }).then((result) => {
-                            if (result.isConfirmed) {
-                              Swal.fire(
-                                "Data telah dihapus!",
-                                "Bejo Paijo",
-                                "success"
-                              );
-                            }
-                          });
-                        }}
-                      >
-                        <i
-                          class="mdi mdi-close-box"
-                          style={{ marginLeft: "10%" }}
-                        ></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> 4 </td>
-                    <td> Ahmad Nur Alhak </td>
-                    <td>
-                      <label class="badge badge-warning">Panding</label>
-                    </td>
-                    <td> Rp.24.350.000 </td>
-                    <td> Maret 12, 2022 </td>
-                    <td>
-                      <button class="btn btn-outline-secondary">View</button>
-                    </td>
-                    <td style={{ textAlign: "center" }}>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-rounded btn-icon"
-                      >
-                        <i
-                          style={{ marginLeft: "10%" }}
-                          class="mdi mdi-pencil"
-                        ></i>
-                      </button>
-                    </td>
-                    <td style={{ textAlign: "center" }}>
-                      <button
-                        type="button"
-                        class="btn btn-danger btn-rounded btn-icon"
-                        onClick={() => {
-                          Swal.fire({
-                            title: "Apakah sudah benar ?",
-                            text: "Ahmad Nur Alhak",
-                            icon: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "#3085d6",
-                            cancelButtonColor: "#d33",
-                            confirmButtonText: "Hapus",
-                          }).then((result) => {
-                            if (result.isConfirmed) {
-                              Swal.fire(
-                                "Data telah dihapus!",
-                                "Ahmad Nur Alhak",
-                                "success"
-                              );
-                            }
-                          });
-                        }}
-                      >
-                        <i
-                          class="mdi mdi-close-box"
-                          style={{ marginLeft: "10%" }}
-                        ></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> 5 </td>
-                    <td> Rafi Dzulfikar </td>
-                    <td>
-                      <label class="badge badge-warning">Panding</label>
-                    </td>
-                    <td> Rp.11.260.000 </td>
-                    <td> Des 08, 2022 </td>
-                    <td>
-                      <button class="btn btn-outline-secondary">View</button>
-                    </td>
-                    <td style={{ textAlign: "center" }}>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-rounded btn-icon"
-                      >
-                        <i
-                          style={{ marginLeft: "10%" }}
-                          class="mdi mdi-pencil"
-                        ></i>
-                      </button>
-                    </td>
-                    <td style={{ textAlign: "center" }}>
-                      <button
-                        type="button"
-                        class="btn btn-danger btn-rounded btn-icon"
-                        onClick={() => {
-                          Swal.fire({
-                            title: "Apakah sudah benar ?",
-                            text: "Rafi Dzulfikar",
-                            icon: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "#3085d6",
-                            cancelButtonColor: "#d33",
-                            confirmButtonText: "Hapus",
-                          }).then((result) => {
-                            if (result.isConfirmed) {
-                              Swal.fire(
-                                "Data telah dihapus!",
-                                "Rafi Dzulfikar",
-                                "success"
-                              );
-                            }
-                          });
-                        }}
-                      >
-                        <i
-                          class="mdi mdi-close-box"
-                          style={{ marginLeft: "10%" }}
-                        ></i>
-                      </button>
-                    </td>
-                  </tr>
+                  {invoice.map((item, index) => {
+                    return (
+                      <>
+                        <tr key={index}>
+                          <td> {index + 1} </td>
+                          {/* <td> {item.id_sys_client} </td> */}
+                          <td>
+                            <label
+                              className={
+                                item.status == "Success"
+                                  ? "badge badge-success"
+                                  : "badge badge-warning"
+                              }
+                            >
+                              {item.status}
+                            </label>
+                          </td>
+                          <td>{rupiah(item.invoice)}</td>
+                          <td>{moment(item.created_at).format("LL")}</td>
+                          <td>
+                            <button
+                              one
+                              onClick={() => {
+                                onModal(item);
+                              }}
+                              class="btn btn-outline-secondary"
+                            >
+                              View
+                            </button>
+                          </td>
+                          <td style={{ textAlign: "center" }}>
+                            <button
+                              type="button"
+                              class="btn btn-primary btn-rounded btn-icon"
+                            >
+                              <i
+                                style={{ marginLeft: "10%" }}
+                                class="mdi mdi-pencil"
+                              ></i>
+                            </button>
+                          </td>
+                          <td style={{ textAlign: "center" }}>
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-rounded btn-icon"
+                              onClick={() => {
+                                Swal.fire({
+                                  title: "Apakah sudah benar ?",
+                                  text: "Aziz Surachman",
+                                  icon: "warning",
+                                  showCancelButton: true,
+                                  confirmButtonColor: "#3085d6",
+                                  cancelButtonColor: "#d33",
+                                  confirmButtonText: "Hapus",
+                                }).then((result) => {
+                                  if (result.isConfirmed) {
+                                    Swal.fire(
+                                      "Data telah dihapus!",
+                                      "Aziz Surachman",
+                                      "success"
+                                    );
+                                  }
+                                });
+                              }}
+                            >
+                              <i
+                                class="mdi mdi-close-box"
+                                style={{ marginLeft: "10%" }}
+                              ></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </>
+                    );
+                  })}
                 </tbody>
               </table>
               <nav className="btn float-right mt-2">
@@ -385,7 +198,13 @@ const InvoiceTable = () => {
           </div>
         </div>
       </div>
-      {<Modal />}
+      {
+        <Modal
+          showModal={showModal}
+          onModal={onModal}
+          itemSelected={itemSelected}
+        />
+      }
     </div>
   );
 };
