@@ -1,7 +1,10 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
+import { noRupiah } from "../../helper";
 
-const modalInvoice = ({ showModal, onModal }) => {
+const modalInvoice = ({ showModal, onModal, itemSelected }) => {
+  console.log("iteem selected");
+  console.log(itemSelected);
   return (
     <div className="col-12 grid-margin">
       <Modal
@@ -108,7 +111,9 @@ const modalInvoice = ({ showModal, onModal }) => {
                           >
                             TOTAL (Rp)
                           </td>
-                          <td className="text-white">150.000</td>
+                          <td className="text-white">
+                            {noRupiah(itemSelected.invoice)}
+                          </td>
                         </tr>
                       </tbody>
                     </table>

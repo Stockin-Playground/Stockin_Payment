@@ -3,21 +3,22 @@ import Swal from "sweetalert2";
 import { useHistory } from "react-router-dom";
 import { getInvoice } from "./InvoiceApi";
 import { Modal } from "../../component";
+import moment from "moment";
+import { rupiah } from "../../helper";
 
 const InvoiceTable = () => {
   const history = useHistory();
   const [alert, setAlert] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [invoice, setInvoice] = useState([]);
+  const [itemSelected, setItemSelected] = useState([]);
 
   useEffect(() => {
     getInvoiceAll();
-  }, []); 
+  }, []);
 
   const getInvoiceAll = async () => {
     setInvoice(await getInvoice());
-    console.log("tampill data dari BE");
-    console.log(await getInvoice());
   };
 
   const onInvoice = useCallback(
@@ -25,8 +26,8 @@ const InvoiceTable = () => {
     [history]
   );
 
-  const onModal = () => {
-    console.log("jaln invoice");
+  const onModal = (item) => {
+    setItemSelected(item);
     setShowModal(!showModal);
   };
 
@@ -71,7 +72,7 @@ const InvoiceTable = () => {
                 <thead>
                   <tr>
                     <th> No </th>
-                    <th> Nama Client </th>
+                    {/* <th> Nama Client </th> */}
                     <th> Status </th>
                     <th> Pembayaran </th>
                     <th> Tanggal Pembayaran </th>
@@ -87,7 +88,7 @@ const InvoiceTable = () => {
                       <>
                         <tr key={index}>
                           <td> {index + 1} </td>
-                          <td> {item.id_sys_client} </td>
+                          {/* <td> {item.id_sys_client} </td> */}
                           <td>
                             <label
                               className={
@@ -99,13 +100,14 @@ const InvoiceTable = () => {
                               {item.status}
                             </label>
                           </td>
-                          <td> Rp.94.850.000 </td>
-                          <td>{item.created_at}</td>
+                          <td>{rupiah(item.invoice)}</td>
+                          <td>{moment(item.created_at).format("LL")}</td>
                           <td>
-                            
                             <button
                               one
-                              onClick={onModal}
+                              onClick={() => {
+                                onModal(item);
+                              }}
                               class="btn btn-outline-secondary"
                             >
                               View
@@ -196,7 +198,13 @@ const InvoiceTable = () => {
           </div>
         </div>
       </div>
-      {<Modal showModal={showModal} onModal={onModal} />}
+      {
+        <Modal
+          showModal={showModal}
+          onModal={onModal}
+          itemSelected={itemSelected}
+        />
+      }
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./app/App";
 import "./i18n";
 import * as serviceWorker from "./serviceWorker";
+require("dotenv").config();
 
 ReactDOM.render(
   <BrowserRouter basename="">
