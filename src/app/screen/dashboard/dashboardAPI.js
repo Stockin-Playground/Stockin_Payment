@@ -3,7 +3,7 @@ import axios from "axios";
 const getSumClient = (where) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`http://localhost:8080/api/client/getCount?by=${where}`)
+      .get(`http://localhost:8080/dashboard/api/client/getCount?by=${where}`)
       .then((result) => {
         console.log("berhasil get data client sum");
         resolve(result.data);

@@ -1,11 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getClient } from "./clientApi";
 
-useEffect(() => {
-  // getClient();
-}, []);
-
 const BasicTable = () => {
+  const [client, setDataClient] = useState([]);
+
+  useEffect(() => {
+    getAllClient();
+  }, []);
+
+  const getAllClient = async () => {
+    setDataClient(await getClient());
+  };
+
   return (
     <div>
       <div className="page-header">
@@ -28,7 +34,14 @@ const BasicTable = () => {
           <div className="card">
             <div className="card-body">
               <h4 className="card-title">Basic Table</h4>
-              <h4 className="card-title">BY: Raden Salaf</h4>
+              <label>
+                <input
+                  type="search"
+                  class="form-control"
+                  placeholder="Search"
+                  aria-controls="order-listing"
+                ></input>
+              </label>
               <p className="card-description"> </p>
               <div className="table-responsive">
                 <table className="table table-bordered">
@@ -43,66 +56,52 @@ const BasicTable = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Pradit</td>
-                      <td>prdt@gmail.com</td>
-                      <td>087232736824</td>
-                      <td>
-                        <label className="badge badge-success">Succes</label>
-                      </td>
-                      <td>
-                        <div class="badge badge-primary">Micro</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Zaki</td>
-                      <td>Zakiowe@gmail.com</td>
-                      <td>038636253673</td>
-                      <td>
-                        <label className="badge badge-success">Succes</label>
-                      </td>
-                      <td>
-                        <label className="badge badge-primary">Primary</label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Bejo</td>
-                      <td>paijo12@gmai.com</td>
-                      <td>081237163662</td>
-                      <td>
-                        <label className="badge badge-warning">Pending</label>
-                      </td>
-                      <td>
-                        <div class="badge badge-danger">Enterprise</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>Abdul</td>
-                      <td>Abdullyy@gmail.com</td>
-                      <td>0852162547283</td>
-                      <td>
-                        <label className="badge badge-success">Succes</label>
-                      </td>
-                      <td>
-                        <div class="badge badge-success">Bengkel</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>Aldi</td>
-                      <td>DyyTeles@yahoo.com</td>
-                      <td>089426388493</td>
-                      <td>
-                        <label className="badge badge-warning">pending</label>
-                      </td>
-                      <td>
-                        <div class="badge badge-warning">Retail</div>
-                      </td>
-                    </tr>
+                    {client.map((item, index) => {
+                      return (
+                        <>
+                          <tr>
+                            <td>1</td>
+                            <td>{item.nama}</td>
+                            <td>{item.email}</td>
+                            <td>{item.nohp}</td>
+                            <td>
+                              <label
+                                className={
+                                  item.stk_state == "FREE"
+                                    ? "badge badge-success"
+                                    : "badge badge-warning"
+                                }
+                              >
+                                {item.stk_state}
+                              </label>
+                            </td>
+                            <td>
+                              <div
+                                class={
+                                  item.stk_paket_client == "1"
+                                    ? "badge badge-primary"
+                                    : item.stk_paket_client == "2"
+                                    ? "badge badge-warning"
+                                    : item.stk_paket_client == "3"
+                                    ? "badge badge-danger"
+                                    : "badge badge-success"
+                                }
+                              >
+                                {item.stk_paket_client == "1"
+                                  ? "micro"
+                                  : item.stk_paket_client == "2"
+                                  ? "retail"
+                                  : item.stk_paket_client == "3"
+                                  ? "enterprice"
+                                  : item.stk_paket_client == "4"
+                                  ? "bengkel"
+                                  : "badge badge-success"}
+                              </div>
+                            </td>
+                          </tr>
+                        </>
+                      );
+                    })}
                   </tbody>
                 </table>
                 <nav className="btn float-right m-2">
