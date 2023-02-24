@@ -27,14 +27,14 @@ class AppRoutes extends Component {
           <Route path="/tables/invoice-table" component={InvoiceTable} />
           <Route path="/tables/invoice-view" component={InvoiceView} />
           <Route path="/tables/invoice-form" component={FormInvoice} />
+          <Route path="/login" component={Login} />
 
-          <Route path="/user-pages/login-1" component={Login} />
           <Route path="/user-pages/register-1" component={Register1} />
 
           <Route path="/error-pages/error-404" component={Error404} />
           <Route path="/error-pages/error-500" component={Error500} />
 
-          <Redirect to="/dashboard" />
+          <Redirect to="/login" />
         </Switch>
       </Suspense>
     );

@@ -6,6 +6,8 @@ import "./i18n";
 import * as serviceWorker from "./serviceWorker";
 require("dotenv").config();
 
+// const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href");
+
 ReactDOM.render(
   <BrowserRouter basename="">
     <App />
