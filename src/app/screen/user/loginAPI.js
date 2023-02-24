@@ -1,18 +1,16 @@
 import axios from "axios";
 
-const getLogin = () => {
-    return new Promise((resolve, reject) => {
-        axios
-        .get("http://localhost:8080/api/login/get")
-        .then ((result) => {
-            console.log("berhasil mencuri data!");
-            resolve(result.data.data);
-        })
-        .catch ((err) =>{
-            console.log("gagal mencuri data!");
-            reject((err));
-        });
-    });
+const getLogin = (data) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post("http://localhost:8080/api/login", data)
+      .then((result) => {
+        result.data.status === 200 ? resolve(result.data.data) : reject();
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
 };
 
-export {getLogin};
+export { getLogin };

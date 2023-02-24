@@ -1,19 +1,22 @@
 import React, { Component, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import { getLogin } from "./loginAPI";
 
 const Login = () => {
   const history = useHistory();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
-    console.log("jalan e");
     const formData = new FormData(e.target),
       formDataObj = Object.fromEntries(formData.entries());
-    console.log(formDataObj);
-
-    onDetailClient();
+    getLogin(formDataObj)
+      .then(() => {
+        onDetailClient();
+      })
+      .catch((err) => {
+        console.log("gagal loginn error");
+      });
   };
 
   const onDetailClient = useCallback(
