@@ -15,6 +15,7 @@ const Login = () => {
         onDetailClient();
       })
       .catch((err) => {
+        console.log(err);
         console.log("gagal loginn error");
       });
   };
