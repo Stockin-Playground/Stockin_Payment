@@ -9,7 +9,13 @@ const BasicTable = () => {
   }, []);
 
   const getAllClient = async () => {
-    setDataClient(await getClient());
+    getClient()
+      .then((result) => {
+        setDataClient(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -49,10 +55,11 @@ const BasicTable = () => {
                     <tr>
                       <th>No</th>
                       <th>Nama</th>
-                      <th>Email</th>
+                      {/* <th>Email</th> */}
                       <th>No Hp</th>
-                      <th>stk_state</th>
-                      <th>stk_paket_client</th>
+                      <th>PJ</th>
+                      <th>Paket pengguna</th>
+                      <th>Status pengguna</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -62,19 +69,9 @@ const BasicTable = () => {
                           <tr>
                             <td>1</td>
                             <td>{item.nama}</td>
-                            <td>{item.email}</td>
+                            {/* <td>{item.email}</td> */}
                             <td>{item.nohp}</td>
-                            <td>
-                              <label
-                                className={
-                                  item.stk_state == "FREE"
-                                    ? "badge badge-success"
-                                    : "badge badge-warning"
-                                }
-                              >
-                                {item.stk_state}
-                              </label>
-                            </td>
+                            <td>{item.pj}</td>
                             <td>
                               <div
                                 class={
@@ -97,6 +94,17 @@ const BasicTable = () => {
                                   ? "bengkel"
                                   : "badge badge-success"}
                               </div>
+                            </td>
+                            <td>
+                              <label
+                                className={
+                                  item.stk_state == "FREE"
+                                    ? "badge badge-success"
+                                    : "badge badge-warning"
+                                }
+                              >
+                                {item.stk_state}
+                              </label>
                             </td>
                           </tr>
                         </>
