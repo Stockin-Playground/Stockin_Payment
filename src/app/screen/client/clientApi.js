@@ -1,18 +1,22 @@
 import axios from "axios";
 
 const getClient = () => {
-    return new Promise ((resolve,reject) => {
+  return new Promise((resolve, reject) => {
     axios
-       .get("http://invsapi.stockin.co.id/api/client/get")
-       .then((result) =>{
+      .post("http://localhost:8080/api/client/get", {
+        nama: "",
+        pj: "",
+        pigination: "1",
+      })
+      .then((result) => {
         console.log("berhasil menampilkan data");
         resolve(result.data.data);
-       }) 
-       .catch((err) =>{
+      })
+      .catch((err) => {
         console.log("gagal menampilkan data");
-        reject((err));
-       });
-    });
+        reject(err);
+      });
+  });
 };
 
-export {getClient}
+export { getClient };
